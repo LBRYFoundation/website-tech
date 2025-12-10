@@ -1,11 +1,8 @@
-# Files
-.DS_Store
-.env
-*.log
-.sass-cache
-app/dist/bundle.css
-app/dist/bundle.css.map
-
-# Directories
-cache
+docs/.vitepress/cache
+docs/.vitepress/dist
 node_modules
+
+*.log
+
+.idea/
+.vscode/settings.json
