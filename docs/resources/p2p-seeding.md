@@ -1,5 +1,5 @@
 ---
-title: LBRY P2P: Settings and troubleshooting
+title: "LBRY P2P: Settings and troubleshooting"
 description: Guide on properly setting up P2P nodes and how to diagnose/fix common issues.
 ---
 
