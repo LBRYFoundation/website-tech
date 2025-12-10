@@ -1,9 +1,9 @@
 ---
 title: Content Downloading
 description: This resource article walks through the step-by-step process of downloading a piece of content from the LBRY network.
---- 
+---
 
-This resource outlines the step-by-step process of using the LBRY protocol to download something. 
+This resource outlines the step-by-step process of using the LBRY protocol to download something.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ For this example, we will use claimID `d9317ac7842f88ba442fee749c4f834353c24206`
 - start with **claim ID**
 - blockchain gets you **metadata** for your claimID
 - parsing metadata gets you **sd hash** and fee info
-  - if there is a fee, pay it using the blockchain
+- if there is a fee, pay it using the blockchain
 - dht gets you **peers** for the sd hash
 - blob exchange gets **sd blob** from peers
 - sd blob is parsed to get **content hashes**
@@ -65,20 +65,20 @@ The SD blob is JSON-formatted text. It contains a dictionary with the following 
 
 ```
 {
-  "stream_name": "574c707655476a766d58632e6d7034",
-  "blobs": [
-    {
-      "length": 2097152,
-      "blob_num": 6,
-      "blob_hash": "b7e43c102781f978c24bc2bc...",
-      "iv": "63a6befc3c8d01f662ffad2f2381b357"
-    },
-    ...
-  ],
-  "stream_type": "lbryfile",
-  "key": "ee768c4e642012bb5b2e20cf9b1f997b",
-  "suggested_file_name": "574c707655476a766d58632e6d7034",
-  "stream_hash": "6b1f9d5f129e06bb94b2ffdda817a5848c...",
+"stream_name": "574c707655476a766d58632e6d7034",
+"blobs": [
+{
+"length": 2097152,
+"blob_num": 6,
+"blob_hash": "b7e43c102781f978c24bc2bc...",
+"iv": "63a6befc3c8d01f662ffad2f2381b357"
+},
+...
+],
+"stream_type": "lbryfile",
+"key": "ee768c4e642012bb5b2e20cf9b1f997b",
+"suggested_file_name": "574c707655476a766d58632e6d7034",
+"stream_hash": "6b1f9d5f129e06bb94b2ffdda817a5848c...",
 }
 ```
 

@@ -1,9 +1,9 @@
 ---
 title: Content Downloading
 description: This resource article walks through the step-by-step process of downloading a piece of content from the LBRY network.
---- 
+---
 
-This resource outlines the step-by-step process of using the LBRY protocol to download something. 
+This resource outlines the step-by-step process of using the LBRY protocol to download something.
 
 ## Getting Started
 

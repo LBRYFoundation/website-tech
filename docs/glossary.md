@@ -7,7 +7,7 @@ This glossary will help you understand the exact meaning of LBRY and blockchain 
 
 We encourage the submission of changes and additions to this glossary.
 
-<GlossaryToc/>
+[//]: # (<GlossaryToc/>)
 
 ### Blob
 

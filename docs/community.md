@@ -9,6 +9,6 @@ Get [upstream of consensus](https://spee.ch/d/consensus.png) by participating in
 
 ## Commune Yourself
 
-<FeatureLinks/>
+[//]: # (<FeatureLinks/>)
 
 <p>And don't forget to sign up for developer-only mailing list, below.</p>
