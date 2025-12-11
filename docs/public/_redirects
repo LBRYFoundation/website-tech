@@ -1,0 +1,24 @@
+/api	/resources	301
+/api/lbry	/api/daemon	301
+/api/lbrycrd	/api/blockchain	301
+/api/sdk	/api/daemon	301
+/api/protocol	/api/daemon	301
+
+/play	/playground	301
+
+/repository-standards	/resources/repository-standards	301
+
+/resources/lbry-claimtrie	/spec#claimtrie	301
+/resources/schema	/spec#metadata	301
+/resources/signing-claim	/resources/claim-signing	301
+/resources/uri	/spec#urls	301
+/resources/video-lbryandroid	https://odysee.com/video-2018-10-15053403:e	301
+/resources/video-lbrycrd	https://odysee.com/intro-to-LBRYcrd:5	301
+/resources/video-lbrydesktop	https://odysee.com/LBRYAppDesign:7	301
+/resources/video-lbrysdk	https://odysee.com/@lbrytech:1/lbrynet-dev-setup:9	301
+
+/specification /spec 301
+
+/tour /playground 301
+
+/whitepaper /spec 301

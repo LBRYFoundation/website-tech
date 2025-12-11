@@ -1,13 +1,14 @@
 ---
-title: Overview
 description: What *is* LBRY? Who *is* Satoshi? In this LBRY technology overview, one of those questions is answered thoroughly.
 ---
+
+# Overview
 
 ## Mission
 
 What if anyone in the world could publish digital content, anyone else in the world could access it (for free or for payment), and that entire system worked without any centralized authority or point of control?
 
-[//]: # (<MissionStatement/>)
+<MissionStatement/>
 
 That's a fancy sentence, so here's a plain one: we thought it'd be *damn **cool*** if there was a system that made it easy to discover and distribute as much of the world's information as possible but was owned and controlled by no one.
 
@@ -27,7 +28,7 @@ That's a fancy sentence, so here's a plain one: we thought it'd be *damn **cool*
 
 Learn more about the specific components that make LBRY possible.
 
-[//]: # (<Overview/>)
+<Overview/>
 
 ## Keep Diving
 
