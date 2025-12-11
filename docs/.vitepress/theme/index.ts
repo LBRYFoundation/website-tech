@@ -2,6 +2,7 @@ import {Icon} from "@iconify/vue";
 import type {EnhanceAppContext} from "vitepress";
 import DefaultTheme from 'vitepress/theme';
 
+import API from "./components/API.vue";
 import FeatureLinks from "./components/FeatureLinks.vue";
 import GlossaryToc from "./components/GlossaryToc.vue";
 import MissionStatement from "./components/MissionStatement.vue";
@@ -9,6 +10,7 @@ import Note from "./components/Note.vue";
 import Overview from "./components/Overview.vue";
 import Playground from "./components/Playground.vue";
 import ResourcesLinkGrid from "./components/ResourcesLinkGrid.vue";
+import Spec from "./components/Spec.vue";
 import Layout from './Layout.vue';
 
 import './custom.css';
@@ -20,6 +22,7 @@ const redirects = _redirects.split('\n').filter(String).map((item: string[]) => 
 export default {
   Layout,
   enhanceApp({ app, router }: EnhanceAppContext): void {
+    app.component('API',API)
     app.component('FeatureLinks',FeatureLinks)
     app.component('GlossaryToc',GlossaryToc)
     app.component('IconifyIcon',Icon)
@@ -28,6 +31,7 @@ export default {
     app.component('Overview',Overview)
     app.component('Playground',Playground)
     app.component('ResourcesLinkGrid',ResourcesLinkGrid)
+    app.component('Spec',Spec)
 
     router.onAfterRouteChange = async (to: string) => {
       // Static redirects
