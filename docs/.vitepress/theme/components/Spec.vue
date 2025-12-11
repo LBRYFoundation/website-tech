@@ -22,11 +22,13 @@ function updateIframe(){
   iframe.src = baseURLSpec + window.location.hash;
 }
 
-window.addEventListener('hashchange',updateIframe);
+onMounted(() => {
+  updateIframe();
 
-window.addEventListener('message',updateHistory);
+  window.addEventListener('hashchange',updateIframe);
 
-onMounted(updateIframe);
+  window.addEventListener('message',updateHistory);
+});
 </script>
 
 <style>
