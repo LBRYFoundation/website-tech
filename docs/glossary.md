@@ -11,11 +11,11 @@ We encourage the submission of changes and additions to this glossary.
 
 ## Blob
 
-The smallest unit of data in LBRY. Each blob is referenced by its [blob hash](#blob-hash), an SHA-384 hash of the blob contents. When files are uploaded to LBRY, they are split into blobs, which are then shared with other peers. See [Encoding](/spec#encoding) for more details.
+The smallest unit of data in LBRY. Each blob is referenced by its [blob hash](#blob-hash), an SHA-384 hash of the blob contents. When files are uploaded to LBRY, they are split into blobs, which are then shared with other peers. See [Encoding]((/spec/#encoding) for more details.
 
 ## Blob Exchange Protocol
 
-The peer-to-peer protocol that LBRY nodes use to upload and download blobs from each other. It handles data transfer, availability checking, and data price negotiation. The name is sometimes shortened to "BlobEx" or "blobex". [The spec](/spec#blob-exchange-protocol) has more info.
+The peer-to-peer protocol that LBRY nodes use to upload and download blobs from each other. It handles data transfer, availability checking, and data price negotiation. The name is sometimes shortened to "BlobEx" or "blobex". [The spec]((/spec/#blob-exchange-protocol) has more info.
 
 ## Block
 
@@ -53,19 +53,19 @@ A tool that stores blockchain data in an SQL database, keeps the database up-to-
 
 ## Channel
 
-The unit of identity in LBRY. A channel is established by publishing a special type of claim that contains a public key. Once a channel is created, content can be published "into" a channel by signing a piece of content with the private key that goes with a channel's public key. Channels allow publishers to build a brand and notify subscribers when new content is published. For details, see [Channels](/spec#channels).
+The unit of identity in LBRY. A channel is established by publishing a special type of claim that contains a public key. Once a channel is created, content can be published "into" a channel by signing a piece of content with the private key that goes with a channel's public key. Channels allow publishers to build a brand and notify subscribers when new content is published. For details, see [Channels]((/spec/#channels).
 
 ## Claim
 
-A [stake](#stake) that contains metadata about a stream or channel. Claims are stored in the claimtrie. More info at [Stake & Claims](/spec#stakes).
+A [stake](#stake) that contains metadata about a stream or channel. Claims are stored in the claimtrie. More info at [Stake & Claims]((/spec/#stakes).
 
 ## Claimtrie
 
-A claimtrie is a data structure used to store the set of all claims and prove the correctness of URL resolution. Full details at [Claimtrie](/spec#claimtrie).
+A claimtrie is a data structure used to store the set of all claims and prove the correctness of URL resolution. Full details at [Claimtrie]((/spec/#claimtrie).
 
 ## Claim Sequence
 
-The order in which a claim for a particular name was created. Claim sequence is used in URLs to reference claims by their order. For example, the third claim for the name `hello` can be referenced by `lbry://hello:3`. See [Claim Sequence](/spec#claim-sequence) for more details.
+The order in which a claim for a particular name was created. Claim sequence is used in URLs to reference claims by their order. For example, the third claim for the name `hello` can be referenced by `lbry://hello:3`. See [Claim Sequence]((/spec/#claim-sequence) for more details.
 
 ## Cold Storage
 
@@ -122,7 +122,7 @@ The currency code for [LBRY Credit](#lbry-credits).
 
 ## lbrycrd
 
-lbrycrd is the authoritative implementation of the LBRY [blockchain](#blockchain) protocol. See [the source code](https://github.com/lbryio/lbrycrd), [the API](/api/blockchain), or [the formal specification](/spec).
+lbrycrd is the authoritative implementation of the LBRY [blockchain](#blockchain) protocol. See [the source code](https://github.com/lbryio/lbrycrd), [the API](/api/blockchain/), or [the formal specification](/spec/).
 
 ## lbry-sdk
 
@@ -132,7 +132,7 @@ The SDK is three things:
 - components that are not part of the spec but are useful for developing applications using the protocol
 - a daemon that participates in the LBRY data network and provides an API for interacting with the protocol
 
-See [the source code](https://github.com/lbryio/lbry-sdk) or [the API documentation](/api/daemon).
+See [the source code](https://github.com/lbryio/lbry-sdk) or [the API documentation](/api/daemon/).
 
 ## LBRY Credits
 
@@ -144,7 +144,7 @@ Main LBRY network and its blockchain. The term is mostly used in comparison to [
 
 ## Manifest
 
-The first blob in a stream. The manifest contains information necessary to find the content blobs and decode them into a file. See [Streams](/spec#streams) in the specification.
+The first blob in a stream. The manifest contains information necessary to find the content blobs and decode them into a file. See [Streams]((/spec/#streams) in the specification.
 
 ## Mempool
 
@@ -178,11 +178,11 @@ A long-running node that accepts blobs for upload and rehosts them on the networ
 
 ## Resolve (or URL Resolution) {#resolve}
 
-The process of translating a URL into the associated claim ID and metadata. See [Resolution](/spec#resolution) for details.
+The process of translating a URL into the associated claim ID and metadata. See [Resolution]((/spec/#resolution) for details.
 
 ## Schema
 
-A definition of the structure of the metadata that is stored in claims in the blockchain.  See [Metadata](/spec#metadata) for more information.
+A definition of the structure of the metadata that is stored in claims in the blockchain.  See [Metadata]((/spec/#metadata) for more information.
 
 ## Simplified Payment Verification
 
@@ -218,7 +218,7 @@ The cryptographic key needed to decrypt the content blobs of a stream. The strea
 
 ## Support
 
-A [stake](#stake) that lends its credits to bolster a claim. A support increases the *effective amount* of a claim, helping it compete for control of the claim's name. See [Supports](/spec#supports) for more on how they work.
+A [stake](#stake) that lends its credits to bolster a claim. A support increases the *effective amount* of a claim, helping it compete for control of the claim's name. See [Supports]((/spec/#supports) for more on how they work.
 
 ## Testnet
 

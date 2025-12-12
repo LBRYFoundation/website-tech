@@ -18,6 +18,7 @@ const filePathSdk = "docs/api.json";
 const rawGitHubBase = "https://cdn.jsdelivr.net/gh/lbryfoundation/";
 
 const tag = 'master';
+const version = 'master';
 
 const apiResponse = ref(null);
 

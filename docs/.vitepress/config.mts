@@ -75,6 +75,10 @@ export default defineConfig({
       },
       text: 'Edit this page on GitHub',
     },
+    footer: {
+      message: 'With love for community',
+      copyright: '© '+(new Date().getFullYear())+' LBRY Foundation',
+    },
     nav: [
       {
         link: 'https://lbry.org',
@@ -107,5 +111,4 @@ export default defineConfig({
     ],
   },
   title: 'LBRY Tech',
-  ignoreDeadLinks: true,
 });

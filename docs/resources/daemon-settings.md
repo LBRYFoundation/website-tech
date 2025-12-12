@@ -8,7 +8,7 @@ This document outlines how to configure SDK daemon settings and what options are
 
 ## Daemon settings configuration
 
-The easiest way to configure the settings is by editing the `daemon_settings.yml` file (may need to be created) that resides in the default [lbrynet directory](https://lbry.com/faq/lbry-directories). These settings can also be configured via the [settings_set](https://lbry.tech/api/daemon#settings_set) API call. The [settings_get](https://lbry.tech/api/daemon#settings_get) API call can be used to retrieve current values. Some values will require an SDK restart after being set via the API call.
+The easiest way to configure the settings is by editing the `daemon_settings.yml` file (may need to be created) that resides in the default [lbrynet directory](https://lbry.com/faq/lbry-directories). These settings can also be configured via the [settings_set](https://lbry.tech/api/daemon/#settings_set) API call. The [settings_get](https://lbry.tech/api/daemon/#settings_get) API call can be used to retrieve current values. Some values will require an SDK restart after being set via the API call.
 
 Sample daemon_settings.yml file:
 

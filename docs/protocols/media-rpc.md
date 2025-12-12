@@ -8,4 +8,4 @@ This protocol is used to query information from the media server.
 
 - **Port:** 5279/TCP
 
-See: [LBRY SDK API](https://lbry.tech/api/daemon)
+See: [LBRY SDK API](https://lbry.tech/api/daemon/)
