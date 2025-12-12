@@ -1,7 +1,8 @@
 ---
-title: Hub Protocol
 description: The protocol used to search and resolve claims, manage wallets, and quickly find blockchain information.
 ---
+
+# Hub Protocol
 
 This protocol is used to search and resolve claims, manage wallets, and quickly find blockchain information. It is based on Bitcoin's BIP40, with some LBRY-specific additions, like Claimtrie methods.
 

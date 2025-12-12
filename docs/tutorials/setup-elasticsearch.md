@@ -1,7 +1,8 @@
 ---
-title: Setup Elasticsearch
 description: Learn how to setup Elasticsearch.
 ---
+
+# Setup Elasticsearch
 
 ## Running
 

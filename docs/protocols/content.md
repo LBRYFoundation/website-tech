@@ -1,7 +1,8 @@
 ---
-title: Content Protocol
 description: The protocol used to download blobs.
 ---
+
+# Content Protocol
 
 This protocol provides a way to pull a blob from a specific node. The protocol uses JSON blocks. The end of a JSON block can be detected if the JSON is valid after receiving a `}`, thereby closing the root object. Another JSON block directly follows it, without any whitespace. This protocol supports composite requests, so multiple requests can be merged into one, as also for the response. For example, one request can both contain `requested_blobs` and `blob_data_payment_rate`, and the server will answer with one response containing both `available_blobs` and `blob_data_payment_rate`.
 
@@ -13,7 +14,7 @@ This protocol provides a way to pull a blob from a specific node. The protocol u
 
 This request will check what blobs are available on the peer. It takes the sent list of blob hashes from `requested_blobs`, checks everyone of them, and returns a list of available blobs in `available_blobs`. Also, the request contains `lbrycrd_address`, which is a boolean property. In the response the `lbrycrd_address` property is a string containing an address. However, the use of `lbrycrd_address` for paying for blob data is not implemented yet.
 
-```json5
+```json lines
 //REQUEST
 {"lbrycrd_address":false,"requested_blobs":["aabbcc","ddeeff"]}
   //or
@@ -33,7 +34,7 @@ This request will check what blobs are available on the peer. It takes the sent 
 
 The reason behind this request is unknown at this moment. The request contains the `blob_data_payment_rate` property with a float. The result is always `RATE_ACCEPTED`, unless the float is below zero. Then the server will respond with `RATE_TOO_LOW`. At this moment, `RATE_UNSET` is not used.
 
-```json5
+```json lines
 //REQUEST
 {"blob_data_payment_rate":123.456}
 
@@ -49,7 +50,7 @@ The reason behind this request is unknown at this moment. The request contains t
 
 This request will get the blob itself. The hash will be sent using `requested_blob`. The server then reacts with an `incoming_blob`. If everything is correct, the `incoming_blob` contains a `blob_hash` property and a `length` property. The blob data directly follows after the JSON block response. If an error occurs, the `incoming_blob` contains an `error` property (and `blob_hash` is empty and `length` is zero).
 
-```json5
+```json lines
 //REQUEST
 {"requested_blob":"aabbcc"}
 

@@ -6,13 +6,13 @@ This guide will walk you through the process of claiming a time locked transacti
 
 If you already have `lbrynet` installed then you can check your version like this:
 
-```
+```shell
 lbrynet version
 ```
 
 If above command fails, you may need to start `lbrynet` first (and then try above again):
 
-```
+```shell
 lbrynet start
 ```
 
@@ -20,24 +20,23 @@ If you do not have `lbrynet` installed or your version is less than `v0.108.0` t
 
 [https://github.com/lbryio/lbry-sdk/releases](https://github.com/lbryio/lbry-sdk/releases)
 
-
 ## Gather Information
 
 ### Transaction ID and Transaction Output Number
 
 1. On the USB key, find a file named `address.txt` and copy the address in this file.
-1. Go to [LBRY Explorer](https://explorer.lbry.com/) and enter the address you copied.
-1. You should see one transaction containing this address, click on this transaction.
-1. You will need two pieces of information on this page, the `transaction id` and the `nout`.
-1. The `transaction id` can be found at the top of the page and directly below the text `LBRY Transaction`.
-1. The `nout` is the position of the output containing your address, starting with 0. Starting from the top of the list of outputs, count the outputs until you get to your address, then subtract 1 from this count, that is your `nout`.
+2. Go to [LBRY Explorer](https://explorer.lbry.com/) and enter the address you copied.
+3. You should see one transaction containing this address, click on this transaction.
+4. You will need two pieces of information on this page, the `transaction id` and the `nout`.
+5. The `transaction id` can be found at the top of the page and directly below the text `LBRY Transaction`.
+6. The `nout` is the position of the output containing your address, starting with 0. Starting from the top of the list of outputs, count the outputs until you get to your address, then subtract 1 from this count, that is your `nout`.
 
 ### Private Key and Redeem Script
 
 1. On the USB key, find a file named `key.zip` and unzip this file using the password emailed to you previously.
-1. You should now have a file named `key.txt` which is base64 encoded and contains your `private key` and `redeem script`.
-1. To decode the contents of the file you can use a website such as [base64decode.org](https://www.base64decode.org/) (not a secure option) or if you have Python installed you can do this on the command line:
-  ```
+2. You should now have a file named `key.txt` which is base64 encoded and contains your `private key` and `redeem script`.
+3. To decode the contents of the file you can use a website such as [base64decode.org](https://www.base64decode.org/) (not a secure option) or if you have Python installed you can do this on the command line:
+  ```shell
   python -m base64 -d /path/to/key.txt
   ```
 1. After decoding you will see a key/value mapping of various items, including `privateKey` and `redeemScript`. Take note of these values.
@@ -46,7 +45,7 @@ If you do not have `lbrynet` installed or your version is less than `v0.108.0` t
 
 Now that you have gathered the necessary information it is easy to redeem your LBC. Time locked transaction can be redeemed using the `lbrynet account deposit` command (fill in the values you gathered previously):
 
-```
+```shell
 lbrynet account deposit <transaction id> <nout> <redeemScript> <privateKey>
 ```
 

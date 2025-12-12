@@ -1,3 +1,9 @@
+<script>
+export default {
+  props: ['text'],
+};
+</script>
+
 <style>
 .component--note {
   padding: 1rem 1rem 1rem 1.25rem;
@@ -5,7 +11,7 @@
   background-color: #ffa50050;
   border-left: 0.5rem solid #ffa500;
   line-height: 1.55;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
   position: relative;
   user-select: text;
 
@@ -33,6 +39,6 @@
 <template>
   <div class="component--note">
     <strong class="component--note__title">Note</strong>
-    <span>LBRYCRD is deprecated and not officially supported anymore. It is recommended to use LBCD.</span>
+    <span>{{ text}}</span>
   </div>
 </template>

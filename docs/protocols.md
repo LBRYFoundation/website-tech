@@ -1,7 +1,8 @@
 ---
-title: Protocols
 description: Understand how LBRY works low level and build your own implementations.
 ---
+
+# Protocols
 
 - [Blockchain P2P Protocol](/protocols/blockchain-p2p)
 

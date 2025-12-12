@@ -1,35 +1,35 @@
 ---
-title: Hosting your own LBRY Web Instance
 description: Setting up an app instance as a webpage.
 ---
 
-Run your own instance of https://lbry.tv using Docker images.
+# Hosting your own LBRY Web Instance
 
+Run your own instance of https://lbry.tv using Docker images.
 
 ## Run the SDK
 
 The LBRY SDK provides RPC and streaming endpoints to interact with the LBRY network. Web users will connect to it directly, so it must be web-accessible. You may have to open ports on your firewall.
 
-```
+```shell
 docker run -d -p 5279:5279 -p 5280:5280 vshyba/websdk
 ```
 
 This image will not save files to disk. It has the `save_blobs` and `save_files` config options set to `false`. If you want to save files, see [Building your own SDK image](#building-your-own-sdk-image) below.
-
 
 ## Run the web app
 
 Clone and install the app as described in the [lbry-desktop repo README](https://github.com/lbryio/lbry-desktop).
 If you want to customize it further, follow the extra steps in `Customize the web app` section. Otherwise:
 
-```
+```shell
 git clone https://github.com/lbryio/lbry-desktop.git
 yarn
 cp .env.defaults .env
 ```
 
 Configure .env with the following settings. They must match the SDK ports in the previous section.
-```
+
+```dotenv
 WEB_SERVER_PORT=8080
 SDK_API_PATH=http://localhost:5279
 LBRY_WEB_API=http://localhost:5279
@@ -39,23 +39,25 @@ LBRY_WEB_BUFFER_API=https://disabled
 ```
 
 Compile and run
-```
+
+```shell
 NODE_ENV=production yarn compile:web
 nodejs web/index.js
 ```
 
-
 ## Building your own SDK image
 
-If you want to customize the SDK settings, you can 
+If you want to customize the SDK settings, you can
 
 Clone the SDK repo:
-```
+
+```shell
 git clone https://github.com/lbryio/lbry-sdk.git
 ```
 
 Create a `docker/webconf.yaml` file and modify as you need. This is a good start:
-```
+
+```shell
 allowed_origin: "*"
 max_key_fee: "0.0 USD"
 save_files: false
@@ -71,9 +73,8 @@ Note that it is required to have `streaming_server` and `api` set to user-access
 
 
 To build the image, run:
-```
+
+```shell
 docker build -f docker/Dockerfile.web -t <your dockerhub username>/<project name, like 'websdk'> .
 docker push <dockerhub username/project name>
 ```
-
-

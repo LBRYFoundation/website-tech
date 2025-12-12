@@ -1,6 +1,7 @@
 <script setup>
 import {onMounted} from "vue";
 import LinkGrid from "./LinkGrid.vue";
+import GitHubFeed from "./GitHubFeed.vue";
 
 const links = [
     {

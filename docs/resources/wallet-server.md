@@ -2,8 +2,7 @@
 
 This guide will walk you through the process of setting up a LBRY wallet server. This involves provisioning a web server and setting up some services (docker, lbrycrd, and the wallet server). At the end, you'll have your own connection to the LBRY network.
 
-**note:** This is early-stage stuff. You may encounter unexpected issues. Please be patient and don't hesitate to [reach out for help](#get-in-touch).
-
+**Note:** This is early-stage stuff. You may encounter unexpected issues. Please be patient and don't hesitate to [reach out for help](#get-in-touch).
 
 ## Start With A Fresh Server
 
@@ -14,10 +13,12 @@ Make sure your firewall has ports 9246 and 50001 open. 9246 is the port lbrycrd 
 ## Install lbrycrd
 
 ### Download and setup
+
 Download the [latest release of lbrycrd](https://github.com/lbryio/lbrycrd/releases/latest).
 
 Then, create a folder on your home directory called `.lbrycrd` and save the following to `.lbrycrd/lbrycrd.conf`:
-```
+
+```ini
 txindex=1
 server=1
 daemon=1
@@ -34,7 +35,7 @@ You can run lbrycrdd directly using `./lbrycrdd`. However, we recommend creating
 
 Create a file at `/etc/systemd/system/lbrycrdd.service` with the following contents:
 
-```
+```ini
 [Unit]
 Description="LBRYcrd daemon"
 After=network.target
@@ -67,7 +68,8 @@ You can watch the lbrycrd log with `tail -f ~/.lbrycrd/debug.log`
 ## Set Up Docker
 
 ### Install Docker & Docker Compose
-```
+
+```shell
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common && \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
@@ -81,7 +83,8 @@ sudo usermod -aG docker $USER
 ### Download our example docker-compose.yml
 
 You can see it [here](https://github.com/lbryio/lbry-sdk/blob/master/docker/docker-compose-wallet-server.yml).
-```
+
+```shell
 curl -L "https://raw.githubusercontent.com/lbryio/lbry-sdk/master/docker/docker-compose-wallet-server.yml" -o docker-compose.yml
 ```
 
@@ -91,7 +94,7 @@ Make sure the user and password in the `DAEMON_URL` variable (the `lbry@lbry` pa
 
 You can skip the initial sync by starting from a snapshot. The following will download a snapshot of the elasticsearch volume and move it into the default location for docker volumes on ubuntu, on other systems you may need to adjust the path used here. Note: snapshot heights must be the same. The tars can be deleted after setting the volumes up.
 
-```bash
+```shell
 SNAPSHOT_HEIGHT="1049658"
 ES_VOLUME_PATH="/var/lib/docker/volumes/${USER}_es01"
 ES_SNAPSHOT_TAR_NAME="es_snapshot_${SNAPSHOT_HEIGHT}.tar"
@@ -109,7 +112,7 @@ sudo mv "snapshot_es_${SNAPSHOT_HEIGHT}" "${ES_VOLUME_PATH}/_data"
 
 The following will download the wallet server docker volume and move it into place as well.
 
-```bash
+```shell
 echo "fetching wallet server snapshot"
 SNAPSHOT_HEIGHT="1049658"
 HUB_VOLUME_PATH="/var/lib/docker/volumes/${USER}_wallet_server"
@@ -128,7 +131,7 @@ sudo mv "snapshot_${SNAPSHOT_HEIGHT}" "${HUB_VOLUME_PATH}/_data"
 
 ### Start the servers
 
-```
+```shell
 docker-compose up --detach
 ```
 
@@ -136,13 +139,13 @@ docker-compose up --detach
 
 The first time you start the wallet server, it will take a few minutes to download a recent snapshot of the database and extract it. You can follow the progress with
 
-```
+```shell
 docker-compose logs --follow
 ```
 
 After the wallet server has caught up, it will bind to port 50001 and start responding to requests. You can check if this happened by running
 
-```
+```shell
 sudo netstat -tlpn | grep 50001
 ```
 
@@ -150,7 +153,7 @@ If there is no output, the port is ont bound yet and the server is still catchin
 
 After the wallet server is ready, check that it responds to basic RPC calls:
 
-```
+```shell
 echo '{"id":1,"method":"server.version"}' | timeout 1 curl telnet://localhost:50001
 ```
 
@@ -159,7 +162,7 @@ You should see a response like `{"jsonrpc": "2.0", "result": ["0.46.1", "0.0"], 
 
 To check Elastic search, there are two commands you can use:
 
-```
+```shell
 curl localhost:9200 # get Elastic status
 
 curl localhost:9200/claims/_count # check how many claims have been synced to Elastic
@@ -172,11 +175,11 @@ curl localhost:9200/claims/_count # check how many claims have been synced to El
 Use the usual docker-compose commands (`start`, `stop`, `pause`, etc) to control the servers. Run `docker-compose --help` to see the
 options.
 
-
 ### Updating
 
 To update to the latest wallet server release, run the following:
-```
+
+```shell
 docker pull lbry/wallet-server:latest-release
 docker-compose down
 docker-compose up --detach
@@ -190,7 +193,7 @@ The process is similar to an update, but causes the server to be down for much l
 #### Main database
 Holds the raw blockchain data and takes several days to resync from scratch, so be sure to have a snapshot or try that last.
 
-```
+```shell
 docker pull lbry/wallet-server:latest-release
 docker-compose down
 docker volume rm "$(whoami)_wallet_server"
@@ -200,7 +203,7 @@ WALLET_SERVER_SNAPSHOT_URL= docker-compose up --detach
 #### Elasticsearch
 ES does the indexing of claims from the main database. It should take around 6 hours to resync on a fast machine.
 
-```
+```shell
 docker pull lbry/wallet-server:latest-release
 docker-compose down
 docker volume rm "$(whoami)_es01"

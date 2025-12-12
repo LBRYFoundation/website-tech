@@ -30,6 +30,5 @@ const links = [{
 </script>
 
 <template>
-  TODO Resource Link Grid
   <LinkGrid :links="links"/>
 </template>

@@ -25,7 +25,6 @@ const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, lin
   align-content: center;
   display: flex;
   flex-flow: row wrap;
-  list-style-type: none;
 }
 
 .link-grid__link {
@@ -34,6 +33,7 @@ const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, lin
   position: relative;
   text-align: center;
   vertical-align: top;
+  list-style-type: none;
 
   @media (min-width: 651px) {
     width: 50%;
@@ -74,7 +74,6 @@ const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, lin
 }
 
 .link-grid__cta {
-  @extend .__button-black;
   display: inline-block;
   font-size: 1rem;
   position: relative;
@@ -83,5 +82,5 @@ const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, lin
 </style>
 
 <template>
-  <ul class="link-grid" v-html="renderedLinks"></ul>
+  <ul class="link-grid" v-html="renderedLinks.join('')"></ul>
 </template>

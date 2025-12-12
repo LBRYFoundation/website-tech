@@ -1,10 +1,11 @@
 ---
-title: Media RPC Protocol
 description: The protocol used to query the media server.
 ---
+
+# Media RPC Protocol
 
 This protocol is used to query information from the media server.
 
 - **Port:** 5279/TCP
 
-See: [https://lbry.tech/api/daemon](LBRY SDK API)
+See: [LBRY SDK API](https://lbry.tech/api/daemon)

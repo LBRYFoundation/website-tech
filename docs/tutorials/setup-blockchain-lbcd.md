@@ -1,7 +1,8 @@
 ---
-title: Setup LBRY blockchain with LBCD
 description: Learn how to setup the LBRY blockchain with LBCD.
 ---
+
+# Setup LBRY blockchain with LBCD
 
 ## Running
 

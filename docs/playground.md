@@ -1,7 +1,8 @@
 ---
-title: Playground
 description: Learn by doing? In this interactive playground you can use the LBRY network and get a feeling for how it actually works!
 ---
+
+# Playground
 
 Check out any of the interactive examples to get a feel for the LBRY protocol!
 

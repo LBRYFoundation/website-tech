@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup>
-import { ref, onMounted, Fragment } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const props = defineProps(['api']);
 

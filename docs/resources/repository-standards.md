@@ -1,7 +1,8 @@
 ---
-title: Repository Documentation Standards
 description: All repository documentation at LBRY complies with a single standard, outlined in this resource article.
 ---
+
+# Repository Documentation Standards
 
 This document outlines the standards for all public, open-source repositories used by LBRY.
 

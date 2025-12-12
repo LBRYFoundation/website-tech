@@ -1,14 +1,14 @@
 ---
-title: Merkle Claim Trie
 description: Publishes to the LBRY network get placed into a Merkle Claim Trie. Learn what that is and why trie is not a typo in this resource article.
 ---
+
+# Merkle Claim Trie
 
 This article will discuss how the data structures that organize claims by names work, how proofs are generated/verified, and how consensus on the state of the trie is represented.
 
 For looking into how claims end up in the trie, [read this instead](/spec#claimtrie).
 
 ## The Trie
-
 
 A Trie is an ordered tree data structure. Think of it as a hash map or dictionary where the keys are ordered and organized in prefixes. It's used for storing claims by name and looks (a bit) like this:
 ![Wikipedia claimtrie](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png)
@@ -24,6 +24,7 @@ The leaf currently holds the winner of that name. It's formed by the transaction
 
 ### Generating the leaf hash
 So, let's suppose that the winner claim of `mindblown` name was made at transaction output `1` of the transaction hash `67ad533eb2676c9d36bfa100092af5358de747e08ef928c0c54a8b3891c2b76b` and included in the Trie at height `102`.
+
 1. The transaction hash is converted from [RPC byte order](https://bitcoin.org/en/glossary/rpc-byte-order) to [internal byte order](https://bitcoin.org/en/glossary/internal-byte-order).
 2. The output number becomes a simple string.
 3. The height becomes a big endian 64 bits value.
@@ -71,4 +72,5 @@ print("root hash is {}".format(hexlify(hash_single_claim_trie(name, tx, nout, at
 ## What if there are more leafs?
 
 Just concatenate the node character with the children’s hashes sha256d(character + leftmost child hash + ... + rightmost child hash ).
-TO BE IMPROVED
+
+> TO BE IMPROVED

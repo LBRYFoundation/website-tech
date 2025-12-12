@@ -1,13 +1,15 @@
 ---
-title: API Wrappers
 description: Find LBRY API wrappers for your favorite language.
 ---
+
+# API Wrappers
 
 This document contains a comprehensive list of all available API wrappers for the LBRY protocol and blockchain. API wrappers allow for easier integration of the LBRY APIs into your codebase. They still require you to run either the [LBRY protocol](https://github.com/lbryio/lbry-sdk) or the [LBRY blockchain](https://github.com/lbryio/lbrycrd).
 
 Interested in creating one for a language not shown below? See our [bounties page](https://lbry.com/bounty/lbry-binding) for details.
 
 ## List of API wrapper resources
+
 | Language   | Creator/Contact                            | GitHub Repository / Other Links                                                                                                                        | Status    |
 |------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | Python     | [osilkin98](https://github.com/osilkin98)  | [PyBry](https://github.com/osilkin98/PyBry) /  [PyPi](https://pypi.org/project/pybry/)                                                                 | Completed |

@@ -128,7 +128,7 @@ async function uploadImage(imageSource) {
   } catch(error) {
     return error;
   }
-};
+}
 
 const allowedQueryMethods = [
   "support_create",

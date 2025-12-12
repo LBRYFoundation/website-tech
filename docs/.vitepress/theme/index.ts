@@ -5,7 +5,6 @@ import DefaultTheme from 'vitepress/theme';
 import API from "./components/API.vue";
 import FeatureLinks from "./components/FeatureLinks.vue";
 import GitHubFeed from "./components/GitHubFeed.vue";
-import GlossaryToc from "./components/GlossaryToc.vue";
 import Home from "./components/Home.vue";
 import MissionStatement from "./components/MissionStatement.vue";
 import Note from "./components/Note.vue";
@@ -27,7 +26,6 @@ export default {
     app.component('API',API)
     app.component('FeatureLinks',FeatureLinks)
     app.component('GitHubFeed',GitHubFeed)
-    app.component('GlossaryToc',GlossaryToc)
     app.component('Home',Home)
     app.component('IconifyIcon',Icon)
     app.component('MissionStatement',MissionStatement)

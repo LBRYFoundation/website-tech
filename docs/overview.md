@@ -12,17 +12,17 @@ What if anyone in the world could publish digital content, anyone else in the wo
 
 That's a fancy sentence, so here's a plain one: we thought it'd be *damn **cool*** if there was a system that made it easy to discover and distribute as much of the world's information as possible but was owned and controlled by no one.
 
-<sub>^1(#footnote-1)^ In the information theoretic sense, LBRY facilitates distribution of all data, whether it be a video or a spreadsheet.</sub>
+> [1] In the information theoretic sense, LBRY facilitates distribution of all data, whether it be a video or a spreadsheet. {#footnote-1}
 
-<sub>^2(#footnote-2)^ Accessible anywhere in the world on any internet-connected device.</sub>
+> [2] Accessible anywhere in the world on any internet-connected device. {#footnote-2}
 
-<sub>^3(#footnote-3)^ Not controlled by any one person, party or authority.</sub>
+> [3] Not controlled by any one person, party or authority. {#footnote-3}
 
-<sub>^4(#footnote-4)^ Resistant to censorship or attempts to control; impervious to attacks or disruptions.</sub>
+> [4] Resistant to censorship or attempts to control; impervious to attacks or disruptions. {#footnote-4}
 
-<sub>^5(#footnote-5)^ In the Pareto sense, with regards to the production and distribution of information (i.e. digital information is both created and distributed in a way that could not be any more efficient from the perspectives of information producers and consumers).</sub>
+> [5] In the Pareto sense, with regards to the production and distribution of information (i.e. digital information is both created and distributed in a way that could not be any more efficient from the perspectives of information producers and consumers). {#footnote-5}
 
-<sub>^6(#footnote-6)^ The most complete collection of world’s books, films, art, games, etc. should be available via LBRY.</sub>
+> [6] The most complete collection of world’s books, films, art, games, etc. should be available via LBRY. {#footnote-6}
 
 ## Ecosystem Overview
 

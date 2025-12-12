@@ -1,5 +1,4 @@
 ---
-title: "LBRY P2P: Settings and troubleshooting"
 description: Guide on properly setting up P2P nodes and how to diagnose/fix common issues.
 ---
 
@@ -17,15 +16,18 @@ In order to troubleshoot reachability, we start by checking your configuration f
 
 ### Checking for reachability
 There are some websites providing generic ways to check ports, like:
+
 - https://www.portcheckers.com/
 - https://portchecker.co/check
 
 However, checking the port does not check if LBRY P2P protocol is working behind it. For a better check, we can use a tool hosted by Madiator, a community member.
+
 - To test for UDP (DHT): http://test.madiator.com:60666/dht/<your `udp_port`>
 - To test for TCP (P2P): http://test.madiator.com:60666/p2p/<your `tcp_port`>
 
 As a last resource to test a remote machine DHT service, from a local SDK try:
-```bash
+
+```shell
 lbrynet peer ping <DHT node id> <IP> <port>
 ```
 
@@ -52,7 +54,6 @@ Files in LBRY are composed by `content blobs`, which can be seen as chunks of bi
 By default, content blobs are kept as long as the files are still in your file list. If you wish to allocate a space limit for content blobs and let the SDK decide what to delete, set `blob_storage_limit` to a value in megabytes.
 
 This won't delete your downloads from the file list. Instead, it deletes content blobs associated with older files as space for newer blobs is requested.
-
 
 ### Setting up space for automatic contribution
 

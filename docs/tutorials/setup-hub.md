@@ -1,9 +1,8 @@
 ---
-title: Setup LBRY Hub
 description: Learn how to setup the LBRY Hub.
 ---
 
-##
+# Setup LBRY Hub
 
 ## Running
 
@@ -13,7 +12,7 @@ The Hub needs a running Elasticsearch instance. [Learn how to set up Elasticsear
 
 Create a `docker-compose.yml` file with this content:
 
-```dockerfile
+```yml
 version: "3"
 
 volumes:

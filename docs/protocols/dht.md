@@ -1,7 +1,8 @@
 ---
-title: DHT Protocol
 description: The protocol used to find other nodes.
 ---
+
+# DHT Protocol
 
 The DHT protocol is used to discover and connect with other nodes. It follows the Kademlia specification, with some slight modiciations. In the Kademlia spec there are 4 message types: `PING`, `FIND_NODE`, `FIND_VALUE` and `STORE`. The protocol uses Bencoding, but is different from the BitTorrent specification (BEP 5).
 

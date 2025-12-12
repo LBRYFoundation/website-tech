@@ -2,7 +2,7 @@ _This section assumes "blockchain" already means something to you. If you're new
 
 LBRY uses a public, proof-of-work blockchain that is very similar to Bitcoin. The blockchain is the foundation of the protocol stack.
 
-The most salient feature of the LBRY blockchain is the association of a normalized string of characters (a "name") with a structured set of metadata. This coupling is called a [[claim]]. The content referenced by a claim can be accessed as a LBRY URL, e.g. [lbry://hellolbry](/playground?url=hellolbry).
+The most salient feature of the LBRY blockchain is the association of a normalized string of characters (a "name") with a structured set of metadata. This coupling is called a [claim](/glossary#claim). The content referenced by a claim can be accessed as a LBRY URL, e.g. [lbry://hellolbry](/playground?url=hellolbry).
 
 The LBRY blockchain stores names and metadata in a parallel [Merkle tree](/resources/claimtrie), separate from the tree used to store transaction data. This allows LBRY URLs to be trustfully resolved even without a full copy of the blockchain.
 

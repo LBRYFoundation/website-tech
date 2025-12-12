@@ -1,9 +1,10 @@
 ---
-title: Setup LBRY blockchain with LBRYCRD
 description: Learn how to setup the LBRY blockchain with LBRYCRD.
 ---
 
-<Note/>
+# Setup LBRY blockchain with LBRYCRD
+
+<Note text="LBRYCRD is deprecated and not officially supported anymore. It is recommended to use LBCD."/>
 
 ## Building
 

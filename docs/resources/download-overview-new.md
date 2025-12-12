@@ -1,7 +1,8 @@
 ---
-title: Content Downloading
 description: This resource article walks through the step-by-step process of downloading a piece of content from the LBRY network.
 ---
+
+# Content Downloading
 
 This resource outlines the step-by-step process of using the LBRY protocol to download something.
 
@@ -17,7 +18,6 @@ You will need:
 
 For this example, we will use claim ID `d9317ac7842f88ba442fee749c4f834353c24206`.
 
-
 ## Overview
 
 - start with **claim ID**
@@ -30,18 +30,15 @@ For this example, we will use claim ID `d9317ac7842f88ba442fee749c4f834353c24206
 - dht and then blob exchange get you the **content blobs**
 - blobs are decrypted and assembled to create the **file**
 
-
 ## Parse the Metadata
 
 Perform a `getclaimbyid` call to lbrycrd using the claim ID for the claim you want to look up. You should get a response with some parameters. The `value` parameter contains the claim contents as a protobuf-encoded binary string. Decode the value using the protobuf definitions in [lbryio/types](https://github.com/lbryio/types/tree/master/v2/proto). You will get a Claim object.
-
 
 ## Get the Stream Hash
 
 Confirm that `Claim.type` is `1` (a stream claim).
 
 Claim.Stream.hash contains the stream hash, which is the hash of the manifest blob in the stream.
-
 
 ## Pay the Fee
 
@@ -53,29 +50,27 @@ Our example claim does not have a fee. If you want to see a claim with a fee, lo
 
 Look up the stream hash in the DHT. Internally this will perform an iterativeFindValue call, starting with the nodes already in the routing table and proceeding to nodes that are closest to the stream hash. The DHT should return a list of hosts that have advertised that they have this hash.
 
-
 ## Download Manifest Blob
 
 Use the blob exchange protocol to request the manifest blob from the hosts found in the previous step.
-
 
 ## Read Manifest Blob
 
 The manifest is JSON-formatted text. It contains a dictionary with the following structure:
 
-```
+```json
 {
   "blobs": [
     {
       "blobHash": "b7e43c102781f978c24bc2bc...",
       "iv": "63a6befc3c8d01f662ffad2f2381b357",
-      "length": 2097152,
+      "length": 2097152
     },
     ...
   ],
   "filename": "574c707655476a766d58632e6d7034",
   "key": "ee768c4e642012bb5b2e20cf9b1f997b",
-  "version":1
+  "version": 1
 }
 ```
 
@@ -86,7 +81,6 @@ To download the content blobs, repeat the steps we took for the stream hash, but
 ## Decrypt and Assemble Blobs
 
 Now that all the blobs have been downloaded, they can be decrypted and assembled into the original file. Decrypt each blob using the key and IVs in the manifest, and concatenate the decrypted bytes in order. Write the finished file to disk.
-
 
 ## Enjoy a Cute Puppy Video
 

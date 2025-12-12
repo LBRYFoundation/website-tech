@@ -1,7 +1,8 @@
 ---
-title: Build
 description: Learn how to build your own app via LBRY in this comprehensive guide! The future of content freedom begins with you. *patriotic music plays*
 ---
+
+# Build
 
 ## Introduction
 
@@ -39,7 +40,7 @@ _These steps require [npm](https://www.npmjs.com). Learn how to install it [here
 
 [electron-starter](https://github.com/lbryio/electron-starter) is the `create-react-app` of LBRY application building.
 
-```
+```shell
 git clone https://github.com/lbryio/electron-starter
 cd electron-starter
 npm install
@@ -48,7 +49,7 @@ npm run dev
 
 #### 2. Verify the app works
 
-Type a word into the text input and click the button to [resolve](https://lbry.tech/api/daemon#resolve) it. This performs a [[claim]] lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
+Type a word into the text input and click the button to [resolve](https://lbry.tech/api/daemon#resolve) it. This performs a [claim](/glossary#claim) lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
 
 Try resolving `lbry://doitlive`.
 
@@ -120,7 +121,7 @@ Whether your blockchain application is a web application, desktop application, o
 
 In each case, you'll follow the typical steps to build a basic application. Then, if your app is reading data from the blockchain and presenting it to users, you'll want to [follow the steps for using chainquery](#chainquery).
 
-If your application needs to send funds, you'll want to [follow the steps for using lbrycrd](#lbrycrd). Note that it is also possible to move funds by using the [LBRY SDK](#sdk), but the SDK does not provide a full blockchain node, only an [[SPV]] wallet.
+If your application needs to send funds, you'll want to [follow the steps for using lbrycrd](#lbrycrd). Note that it is also possible to move funds by using the [LBRY SDK](#sdk), but the SDK does not provide a full blockchain node, only an [SPV](/glossary#SPV) wallet.
 
 #### Other Web Applications
 
@@ -128,7 +129,7 @@ It is also possible to create a browser extension similar to Joule and Metamask.
 
 1. Have the user run a local copy of the [SDK](#sdk) on their computer and send commands from the browser that interact with the user's personal wallet.
 
-1. Run the [SDK](#sdk) on a centrally hosted server and manage keys or funds for each user. If you're doing this, you'll want to read [Full Web Applications](#full-web-applications).
+2. Run the [SDK](#sdk) on a centrally hosted server and manage keys or funds for each user. If you're doing this, you'll want to read [Full Web Applications](#full-web-applications).
 
 Going through a centralized server makes it easier on users, but comes with more responsibility to keep your user's funds secure. It also requires creating business logic on your server to associate user accounts with common types like claims and files.
 
@@ -146,7 +147,7 @@ If you want to write an electron app, check out the [electron-starter project](h
 
 Check out [this video](https://spee.ch/6/lbry-electron-starter) for a brief overview and guide to get it running. If you just want the source code, go [here](https://github.com/lbryio/electron-starter). Or, if you really really want to see it in action _now_, just paste these commands into your terminal:
 
-```
+```shell
 git clone https://github.com/lbryio/electron-starter
 cd electron-starter
 npm install
@@ -183,10 +184,10 @@ The [LBRY SDK](https://github.com/lbryio/lbry-sdk) provides an API that enables 
 
 You can download the latest version from the [releases page](https://github.com/lbryio/lbry-sdk/releases) or via the following URLs, which will always download the latest SDK for each operating system:
 
-| OS | URL |
-| --- | --- |
-| Linux | [lbry.com/releases/lbry.deb](https://lbry.com/releases/lbry.deb) |
-| macOS | [lbry.com/releases/lbry.dmg](https://lbry.com/releases/lbry.dmg) |
+| OS      | URL                                                              |
+|---------|------------------------------------------------------------------|
+| Linux   | [lbry.com/releases/lbry.deb](https://lbry.com/releases/lbry.deb) |
+| macOS   | [lbry.com/releases/lbry.dmg](https://lbry.com/releases/lbry.dmg) |
 | Windows | [lbry.com/releases/lbry.exe](https://lbry.com/releases/lbry.exe) |
 
 #### Using the SDK
@@ -203,14 +204,14 @@ The API provided by the SDK is documented [here](https://lbry.tech/api/daemon).
 
 ### Chainquery
 
-[Chainquery](https://github.com/lbryio/chainquery) parses and syncs blockchain data in realtime to an SQL database. Applications that want to query blockchain data, whether that's transactions or [[claim]] metadata, will find it useful to use Chainquery.
+[Chainquery](https://github.com/lbryio/chainquery) parses and syncs blockchain data in realtime to an SQL database. Applications that want to query blockchain data, whether that's transactions or [claim](/glossary#claim) metadata, will find it useful to use Chainquery.
 
 You can download the latest version from the [releases page](https://github.com/lbryio/chainquery/releases) or via the following URLs, which will always download the latest version for each operating system:
 
-| OS | URL |
-| --- | --- |
-| Linux | [lbry.com/releases/chainquery.deb](https://lbry.com/releases/chainquery.deb) |
-| macOS | [lbry.com/releases/chainquery.dmg](https://lbry.com/releases/chainquery.dmg) |
+| OS      | URL                                                                          |
+|---------|------------------------------------------------------------------------------|
+| Linux   | [lbry.com/releases/chainquery.deb](https://lbry.com/releases/chainquery.deb) |
+| macOS   | [lbry.com/releases/chainquery.dmg](https://lbry.com/releases/chainquery.dmg) |
 | Windows | [lbry.com/releases/chainquery.exe](https://lbry.com/releases/chainquery.exe) |
 
 Note: chainquery has both 32-bit and 64-bit builds, which the redirect URLs do not handle. Check the [releases page](https://github.com/lbryio/chainquery/releases) to ensure you get the right one.
@@ -219,18 +220,18 @@ Note: chainquery has both 32-bit and 64-bit builds, which the redirect URLs do n
 
 The `README` bundled with Chainquery provides the latest steps for running Chainquery.
 
-After following those steps, you'll have an SQL database that stays up to date, including [[mempool]] transactions. You can then query this database using the functionality provided by the language you're developing in.
+After following those steps, you'll have an SQL database that stays up to date, including [mempool](/glossary#mempool) transactions. You can then query this database using the functionality provided by the language you're developing in.
 
 ### lbrycrd
 
-[lbrycrd](https://github.com/lbryio/lbrycrd) provides a full blockchain node and a daemon for making JSON-RPC calls. Applications that require full blockchain functionality (as opposed to [[SPV]], provided by the [SDK](#sdk) will want to use lbrycrd. Most applications will not need to use lbrycrd.
+[lbrycrd](https://github.com/lbryio/lbrycrd) provides a full blockchain node and a daemon for making JSON-RPC calls. Applications that require full blockchain functionality (as opposed to [SPV](/glossary#SPV), provided by the [SDK](#sdk) will want to use lbrycrd. Most applications will not need to use lbrycrd.
 
 You can download the latest version from the [releases page](https://github.com/lbryio/lbrycrd/releases) or via the following URLs, which will always download the latest version for each operating system:
 
-| OS | URL |
-| --- | --- |
-| Linux | [lbry.com/releases/lbrycrd.deb](https://lbry.com/releases/lbrycrd.deb) |
-| macOS | [lbry.com/releases/lbrycrd.dmg](https://lbry.com/releases/lbrycrd.dmg) |
+| OS      | URL                                                                    |
+|---------|------------------------------------------------------------------------|
+| Linux   | [lbry.com/releases/lbrycrd.deb](https://lbry.com/releases/lbrycrd.deb) |
+| macOS   | [lbry.com/releases/lbrycrd.dmg](https://lbry.com/releases/lbrycrd.dmg) |
 | Windows | [lbry.com/releases/lbrycrd.exe](https://lbry.com/releases/lbrycrd.exe) |
 
 #### Using lbrycrd

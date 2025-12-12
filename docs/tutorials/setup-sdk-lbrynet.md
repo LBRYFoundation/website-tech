@@ -1,7 +1,8 @@
 ---
-title: Setup LBRY SDK with lbrynet
 description: Learn how to setup the LBRY SDK with lbrynet.
 ---
+
+# Setup LBRY SDK with lbrynet
 
 ## Running
 
