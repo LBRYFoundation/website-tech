@@ -66,8 +66,20 @@ import {defineConfig} from 'vitepress';
 
 /** @type {import('vitepress').DefaultTheme.Config} */
 export default defineConfig({
+  buildEnd: async (siteConfig: SiteConfig): void => {
+    const sitemapFile: string = path.join(siteConfig.outDir,'sitemap.xml');
+
+    // Wait for sitemap.xml to be made
+    await new Promise(resolve => setTimeout(resolve,1000));
+
+    // Modify sitemap.xml
+    writeFileSync(sitemapFile,readFileSync(sitemapFile).toString().replace('<?xml version="1.0" encoding="UTF-8"?>','<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="sitemap.xsl" type="text/xsl"?>'));
+  },
   //color: "#222"
   description: 'LBRY is a free, open, and community-controlled digital goods marketplace. Learn about technical specifics, how to contribute, API specifications, and much more.',
+  sitemap: {
+    hostname: 'https://lbry.tech',
+  },
   themeConfig: {
     editLink: {
       pattern: (payload: PageData): string => {
