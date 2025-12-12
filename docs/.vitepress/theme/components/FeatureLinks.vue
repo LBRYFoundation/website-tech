@@ -1,12 +1,12 @@
 <script setup>
 const links = [
   {
-    href: "https://chat.lbry.com",
+    href: "https://chat.lbry.org",
     image: "https://spee.ch/b432346bfd641990f3dc3dbceda057b4ededa360/discord-bg.jpg",
     title: "Chat (Discord)"
   },
   {
-    href: "https://discourse.lbry.com",
+    href: "https://forum.lbry.org",
     image: "https://spee.ch/e59dcbe6a533934eb82e73bb335b7e43cb8a9f7d/atmosphere.png",
     title: "Developer Forum"
   },

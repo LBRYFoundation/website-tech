@@ -8,4 +8,4 @@ This protocol is used to query information from the blockchain. For example, the
 
 - **Port:** 9245/TCP
 
-See: [Bitcoin.org RPC API Reference](https://developer.bitcoin.org/reference/rpc/index.html) and [LBRY Blockchain API](https://lbry.tech/api/blockchain)
+See: [Bitcoin.org RPC API Reference](https://developer.bitcoin.org/reference/rpc/index.html) and [LBRY Blockchain API](/api/blockchain/)

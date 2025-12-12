@@ -58,9 +58,9 @@ Several hundred extremely good-looking, wise and moral people, as well as our CT
 
 ### How To Contribute Code
 
-1. **Join the Community**. By joining our [chat](https://chat.lbry.com) or our [forum](https://discourse.lbry.com), you can interact with other developers when you have questions, ideas, or problems.
+1. **Join the Community**. By joining our [chat](https://chat.lbry.org) or our [forum](https://forum.lbry.org), you can interact with other developers when you have questions, ideas, or problems.
 2. **Identify the component you want to work on**. LBRY has code bases that deal with everything from cryptography and distributed systems to end-user graphic user-interfaces. We use Python, JavaScript, C++, Go, and more. See [ecosystem overview](/overview#ecosystem-overview) to find the right project.
-3. **Get set up.** Each repo has a [README](/glossary#README) with clear instructions on how to get the repo up and running properly. Thanks, [Repository Standards](https://lbry.tech/resources/repository-standards)!
+3. **Get set up.** Each repo has a [README](/glossary#README) with clear instructions on how to get the repo up and running properly. Thanks, [Repository Standards](/resources/repository-standards)!
 4. **Find something to work on**. All actively developed repositories should have issues tagged "Good First Issues" specifically for new contributors. You are also welcome to work on something not currently filed if you have your own idea. Additionally, all repositories have contact information for the maintainer if you have trouble finding an issue to work on.
 5. **Abide coding and commit standards**. Any specific information necessary to know in this regard should be in the project [README](/glossary#README).
 6. **Commit early and ask questions**. Is an issue confusing? Please comment and say so! Not sure if you've got the right approach? Commit your code and we'll give feedback. Certain you're doing everything right? Commit it anyway. Once you commit, open a pull request. We encourage work-in-progress commits to let us know you're working on something and to facilitate feedback.
@@ -70,7 +70,7 @@ Several hundred extremely good-looking, wise and moral people, as well as our CT
 
 Web and application designers are requested to be able to work directly on CSS in the project they'd be contributing to. Please follow the [Coding](#coding) instructions for any website or application you want to improve.
 
-We're happy to provide assistance if you're used to working in HTML and CSS but are having trouble getting started. Check out [our chat](https://chat.lbry.com) or [our forum](https://discourse.lbry.com).
+We're happy to provide assistance if you're used to working in HTML and CSS but are having trouble getting started. Check out [our chat](https://chat.lbry.org) or [our forum](https://forum.lbry.org).
 
 ## Writing
 
@@ -93,7 +93,7 @@ A number of our code bases ([lbrycrd](/glossary#lbrycrd), [lbry-sdk](/glossary#l
 ### Ways to Test
 
 - "Watch" the repo on GitHub. You will receive an email with release notes whenever a release candidate is out and you can [raise an issue](#raising-issues).
-- Join the #early-testing channel in our [chat](https://chat.lbry.com).
+- Join the #early-testing channel in our [chat](https://chat.lbry.org).
 - For the hardcore, run master from source and/or the latest builds from [build.lbry.io](http://build.lbry.io).
 
 Opening well-specified issues against release candidates or master builds is extremely useful in helping us create quality software.
@@ -130,7 +130,7 @@ Feature requests are welcome. Before you submit one be sure to:
 
 Sometimes, you may have a problem but an issue isn't appropriate (or you're not sure if it's a real issue).
 
-Join our [chat](https://chat.lbry.com), our [forum](https://discourse.lbry.com), or another [community](https://lbry.tech/community) and talk to others about it.
+Join our [chat](https://chat.lbry.org), our [forum](https://forum.lbry.org), or another [community](/community) and talk to others about it.
 
 ## Appreciation
 

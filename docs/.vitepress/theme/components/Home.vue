@@ -441,8 +441,8 @@ body.home { /* sass-lint:disable-line no-qualifying-elements // TODO: FIX THIS*/
         <p>There's literally <a href="https://lbry.tv/@lbrytech:1/dozens:e">12n</a> of us.</p>
 
         <ul>
-          <li><a href="//chat.lbry.com" title="LBRY on Discord">Chat</a></li>
-          <li><a href="//discourse.lbry.com" title="LBRY on Discourse">Forum</a></li>
+          <li><a href="//chat.lbry.org" title="LBRY on Discord">Chat</a></li>
+          <li><a href="//forum.lbry.org" title="LBRY on Discourse">Forum</a></li>
           <li><a href="//www.reddit.com/r/lbry" title="LBRY on Reddit">Reddit</a></li>
         </ul>
       </div>
