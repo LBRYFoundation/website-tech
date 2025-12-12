@@ -1,70 +1,9 @@
 import {readFileSync, writeFileSync} from "fs";
 import path from "path";
-import {defineConfig, PageData, SiteConfig} from 'vitepress';
+import {defineConfig, PageData, SiteConfig, TransformContext} from 'vitepress';
 
-////  I M P O R T
-//
-// // import html from "choo/html";
-// import { html } from 'hono/html'
-//
-//
-// //  U T I L
-//
-// import config from "../../config.js";
-//
-//
-//
-// //  E X P O R T
-//
-// export default (context) => {
-//   const newMetadata = context.var.lbry;
-//   const description = newMetadata && newMetadata.description ?
-//     newMetadata.description :
-//     config.meta.description;
-//
-//   const title = newMetadata && newMetadata.title ?
-//     newMetadata.title + " - lbry.tech" :
-//     "lbry.tech - " + config.meta.tagline;
-//
-//   return html`
-//     <meta charset="utf-8"/>
-//     <title>${title}</title>
-//
-//     <meta name="apple-mobile-web-app-capable" content="yes"/>
-//     <meta name="author" content="${config.meta.title}"/>
-//     <meta name="description" content="${description}"/>
-//     <meta name="title" content="${config.meta.title}"/>
-//     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
-//
-//     <!--/ Open Graph /-->
-//     <meta property="og:title" content="${title}"/>
-//     <meta property="og:description" content="${description}"/>
-//     <meta property="og:image" content="${newMetadata && newMetadata["og:image"] ? newMetadata["og:image"] : "/assets/media/images/og-image.png"}"/>
-//     <meta property="og:image:height" content="${newMetadata && newMetadata["og:image:height"] ? newMetadata["og:image:height"] : 1125}"/>
-//     <meta property="og:image:width" content="${newMetadata && newMetadata["og:image:width"] ? newMetadata["og:image:width"] : 2000}"/>
-//     <meta property="og:locale" content="en_US"/>
-//     <meta property="og:site_name" content="LBRY.tech"/>
-//     <meta property="og:type" content="website"/>
-//     <meta property="og:url" content="https://lbry.tech${context.href}"/>
-//
-//     <!--/ Social/App Stuff /-->
-//     <meta name="apple-mobile-web-app-title" content="${config.meta.title}"/>
-//     <meta name="application-name" content="${config.meta.title}"/>
-//     <meta name="msapplication-TileColor" content="${config.meta.color}"/>
-//     <meta name="msapplication-TileImage" content="/assets/apple-touch-icon.png"/>
-//     <meta name="theme-color" content="${config.meta.color}"/>
-//
-//     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
-//     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"/>
-//     <link rel="mask-icon" href="/assets/favicon.svg" color="${config.meta.color}"/>
-//     <link rel="shortcut icon" href="/assets/favicon.ico"/>
-//     <link rel="preconnect" href="https://fonts.bunny.net">
-//     <link href="https://fonts.bunny.net/css?family=inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-//     <link rel="stylesheet" href="/assets/bundle.css?v=${Math.random()}"/>
-//
-//     <script src="/assets/scripts/sockets.js"></script>
-//   `;
-// };
+const metaColor: string = '#222222';
+const metaLogo: string = '/logo.png';
 
 /** @type {import('vitepress').DefaultTheme.Config} */
 export default defineConfig({
@@ -77,8 +16,36 @@ export default defineConfig({
     // Modify sitemap.xml
     writeFileSync(sitemapFile,readFileSync(sitemapFile).toString().replace('<?xml version="1.0" encoding="UTF-8"?>','<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="sitemap.xsl" type="text/xsl"?>'));
   },
-  //color: "#222"
   description: 'LBRY is a free, open, and community-controlled digital goods marketplace. Learn about technical specifics, how to contribute, API specifications, and much more.',
+  head: [
+    // Generic Link
+    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+    ['link', { rel: 'icon', href: metaLogo }],
+    ['link', { rel: 'manifest', href: '/manifest.json' }],
+    ['link', { color: metaColor, rel: 'mask-icon', href: '/assets/favicon.svg' }],
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+
+    // Generic Meta
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'LBRY Tech' }],
+    ['meta', { name: 'application-name', content: 'LBRY Tech' }],
+    ['meta', { name: 'theme-color', content: metaColor }],
+    ['meta', { name: 'viewport', content: 'initial-scale=1,width=device-width' }],
+
+    // MS Application
+    ['meta', { name: 'msapplication-TileColor', content: metaColor }],
+    ['meta', { name: 'msapplication-TileImage', content: metaLogo }],
+
+    // Twitter Card
+    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { name: 'twitter:image', content: metaLogo }],
+
+    // OpenGraph
+    ['meta', { property: 'og:image', content: metaLogo }],
+    ['meta', { property: 'og:locale', content: 'en_US' }],
+    ['meta', { property: 'og:site_name', content: 'LBRY Tech' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+  ],
   sitemap: {
     hostname: 'https://lbry.tech',
   },
@@ -125,4 +92,59 @@ export default defineConfig({
     ],
   },
   title: 'LBRY Tech',
+  transformHead: (context: TransformContext): void => {
+    let path: string = '/'+context.pageData.relativePath
+      .replace(/index\.md$/,'')
+      .replace(/\.md$/,'.html');
+
+    // OpenGraph
+    context.head.push([
+      'meta',
+      {
+        content: context.description,
+        property: 'og:description',
+      },
+    ]);
+    context.head.push([
+      'meta',
+      {
+        content: context.title,
+        property: 'og:title',
+      },
+    ]);
+    if(!context.pageData.isNotFound){
+      context.head.push([
+        'meta',
+        {
+          content: path,
+          property: 'og:url',
+        },
+      ]);
+    }
+
+    // Twitter Card
+    context.head.push([
+      'meta',
+      {
+        content: context.description,
+        name: 'twitter:description',
+      },
+    ]);
+    context.head.push([
+      'meta',
+      {
+        content: context.title,
+        name: 'twitter:title',
+      },
+    ]);
+    if(!context.pageData.isNotFound){
+      context.head.push([
+        'meta',
+        {
+          content: path,
+          name: 'twitter:url',
+        },
+      ]);
+    }
+  },
 });

@@ -39,6 +39,6 @@ export default {
 <template>
   <div class="component--note">
     <strong class="component--note__title">Note</strong>
-    <span>{{ text}}</span>
+    <span>{{ text }}</span>
   </div>
 </template>
