@@ -1,4 +1,6 @@
-import {defineConfig} from 'vitepress';
+import {readFileSync, writeFileSync} from "fs";
+import path from "path";
+import {defineConfig, PageData, SiteConfig} from 'vitepress';
 
 ////  I M P O R T
 //
