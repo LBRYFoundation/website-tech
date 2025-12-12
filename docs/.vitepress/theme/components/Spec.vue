@@ -1,28 +1,27 @@
-<script setup>
-import { onMounted } from 'vue';
+<script lang="ts" setup>
+import {onMounted, ref} from 'vue';
 
-const baseURLSpec = "https://spec.lbry.com";
+const baseURLSpec: string = "https://spec.lbry.com";
 
-function updateHistory(ev){
-  const iframe = document.getElementById("spec");
+const iframe = ref<HTMLIFrameElement|null>(null);
 
-  if(ev.origin!==baseURLSpec || ev.source!==iframe.contentWindow){
+function updateHistory(ev: MessageEvent): void{
+  if(ev.origin!==baseURLSpec || ev.source!==iframe.value.contentWindow){
     // Security
     return;
   }
 
-  const iframeHash = ev.data;
+  const iframeHash: string = ev.data;
 
-  const url = window.location.href.substring(0,window.location.href.lastIndexOf("#"));
+  const url: string = window.location.href.substring(0,window.location.href.lastIndexOf("#"));
   history.replaceState(null,null,url + '#' + iframeHash);
 }
 
-function updateIframe(){
-  const iframe = document.getElementById("spec");
-  iframe.src = baseURLSpec + window.location.hash;
+function updateIframe(): void{
+  iframe.value.src = baseURLSpec + window.location.hash;
 }
 
-onMounted(() => {
+onMounted((): void => {
   updateIframe();
 
   window.addEventListener('hashchange',updateIframe);
@@ -33,8 +32,9 @@ onMounted(() => {
 
 <style>
 .frame-viewer {
-  width: 100%; height: calc(100vh - 4rem);
   display: block;
+  height: calc(100vh - 4rem);
+  width: 100%;
 }
 
 .frame-viewer iframe {
@@ -42,11 +42,10 @@ onMounted(() => {
   height: 100%;
   width: 100%;
 }
-
 </style>
 
 <template>
   <div class="frame-viewer">
-    <iframe id="spec"></iframe>
+    <iframe ref="iframe"></iframe>
   </div>
 </template>

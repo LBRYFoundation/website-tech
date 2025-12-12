@@ -1,5 +1,4 @@
 <script setup>
-import {onMounted} from "vue";
 import LinkGrid from "./LinkGrid.vue";
 import GitHubFeed from "./GitHubFeed.vue";
 
@@ -17,15 +16,13 @@ const links = [
       title: "Learn By Reading"
     }
   ];
-
-onMounted(() => {
-  document.getElementsByTagName("body")[0].classList.add("home");
-  // TODO: make this happen in components/layout
-});
 </script>
 
 <style>
-body.home { /* sass-lint:disable-line no-qualifying-elements // TODO: FIX THIS*/
+body :has(.home) {
+  padding-right: env(safe-area-inset-right);
+  padding-left: env(safe-area-inset-left);
+
   @media (min-width: 1001px) {
     main > div:first-of-type {
       display: grid;
@@ -40,11 +37,6 @@ body.home { /* sass-lint:disable-line no-qualifying-elements // TODO: FIX THIS*/
       "community community community";
     }
   }
-}
-
-.home {
-  padding-right: env(safe-area-inset-right);
-  padding-left: env(safe-area-inset-left);
 
   h2 {
     font-weight: normal;
