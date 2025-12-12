@@ -99,27 +99,27 @@ export default defineConfig({
         text: 'LBRY.org',
       },
       {
-        link: "/overview",
+        link: "/overview/",
         text: "Overview",
       },
       {
-        link: "/tutorials",
+        link: "/tutorials/",
         text: "Tutorials",
       },
       {
-        link: "/protocols",
+        link: "/protocols/",
         text: "Protocols",
       },
       {
-        link: "/playground",
+        link: "/playground/",
         text: "Playground",
       },
       {
-        link: "/resources",
+        link: "/resources/",
         text: "Resources",
       },
       {
-        link: "/community",
+        link: "/community/",
         text: "Community",
       },
     ],

@@ -6,7 +6,7 @@ description: Guide on properly setting up P2P nodes and how to diagnose/fix comm
 
 A very important step in supporting the network resilience is hosting content in a decentralized way. This already happens when you stream content using the desktop version of LBRY APP, but sometimes we want to make sure this is working or dedicate larger amounts of resources for this task.
 
-This document aims to explain P2P configuration and troubleshooting from small to large nodes. If you don't know how to change SDK settings, check [this other document first](/resources/daemon-settings).
+This document aims to explain P2P configuration and troubleshooting from small to large nodes. If you don't know how to change SDK settings, check [this other document first](/resources/daemon-settings/).
 
 ## Reachability
 The first priority when seeding content is making sure there is a way for other nodes to reach you across the internet.

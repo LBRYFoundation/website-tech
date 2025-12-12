@@ -4,26 +4,26 @@ description: Understand how LBRY works low level and build your own implementati
 
 # Protocols
 
-- [Blockchain P2P Protocol](/protocols/blockchain-p2p)
+- [Blockchain P2P Protocol](/protocols/blockchain-p2p/)
 
-- [Blockchain RPC Protocol](/protocols/blockchain-rpc)
-
-
-- [Content Protocol](/protocols/content)
+- [Blockchain RPC Protocol](/protocols/blockchain-rpc/)
 
 
-- [DHT Protocol](/protocols/dht)
+- [Content Protocol](/protocols/content/)
 
 
-- [Hub Protocol](/protocols/hub)
-- [Hub Ping Protocol](/protocols/hub-ping)
+- [DHT Protocol](/protocols/dht/)
 
 
-- [Media Streaming Protocol](/protocols/media-streaming)
+- [Hub Protocol](/protocols/hub/)
+- [Hub Ping Protocol](/protocols/hub-ping/)
 
-- [Media RPC Protocol](/protocols/media-rpc)
+
+- [Media Streaming Protocol](/protocols/media-streaming/)
+
+- [Media RPC Protocol](/protocols/media-rpc/)
 
 
-- [Reflector Protocol](/protocols/reflector)
+- [Reflector Protocol](/protocols/reflector/)
 
 ![Protocol Chart](/assets/LBRYNetworkProtocolChart.png)

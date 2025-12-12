@@ -152,4 +152,4 @@ buildozer android debug
 
 Everything built at LBRY is open source.
 
-Check out [lbry-android](https://github.com/lbryio/lbry-android) on GitHub to find issues or read our [Contributor's Guide](/contribute) to learn more.
+Check out [lbry-android](https://github.com/lbryio/lbry-android) on GitHub to find issues or read our [Contributor's Guide](/contribute/) to learn more.

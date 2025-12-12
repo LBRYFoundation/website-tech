@@ -34,7 +34,7 @@ Before we make any changes, it's a good idea to verify that everything is workin
 
 Try typing a word into the text input and click the button to [resolve](/api/daemon/#resolve) it.
 
-This performs a [claim](/glossary#claim) lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
+This performs a [claim](/glossary/#claim) lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
 
 Try resolving `lbry://doitlive`.
 

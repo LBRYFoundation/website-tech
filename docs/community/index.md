@@ -4,7 +4,7 @@ description: Want to talk with other LBRYians? Find out where the LBRY team hang
 
 # Community
 
-Sometimes we say that the LBRY [blockchain](/glossary#blockchain) is the foundation of the LBRY protocol, but that's not really true. The foundation of LBRY is the community of people that make it possible.
+Sometimes we say that the LBRY [blockchain](/glossary/#blockchain) is the foundation of the LBRY protocol, but that's not really true. The foundation of LBRY is the community of people that make it possible.
 
 Get [upstream of consensus](https://player.odycdn.com/speech/consensus:d.png) by participating in the LBRY community.
 

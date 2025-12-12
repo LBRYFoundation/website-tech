@@ -170,7 +170,7 @@ An open system with no centralized control is permissionless. Examples include H
 
 ## README
 
-A file included with each LBRY project that contains basic information about that project. More in (/resources/repository-standards).
+A file included with each LBRY project that contains basic information about that project. More in (/resources/repository-standards/).
 
 ## Reflector
 

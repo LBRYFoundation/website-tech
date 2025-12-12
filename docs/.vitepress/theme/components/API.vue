@@ -241,7 +241,7 @@ function createHeader() {
   if(props.api==='daemon'){
     return `<div class="api-content__body">
     <h2>lbry-sdk ${tag}</h2>
-    <p>Methods and signatures provided by the <a href="/glossary#lbry-sdk">lbry-sdk</a> daemon are documented below. To build, download, or run the daemon, see the project <a href="https://github.com/lbryio/lbry-sdk/blob/master/README.md">README</a>.</p>
+    <p>Methods and signatures provided by the <a href="/glossary/#lbry-sdk">lbry-sdk</a> daemon are documented below. To build, download, or run the daemon, see the project <a href="https://github.com/lbryio/lbry-sdk/blob/master/README.md">README</a>.</p>
   </div>
 
   <div class="api-content__intro">
@@ -252,7 +252,7 @@ function createHeader() {
   if(props.api==='blockchain'){
     return ` <div class="api-content__body">
     <h2>lbrycrd ${version}</h2>
-    <p>Methods and signatures provided by the <a href="/glossary#lbrycrd">lbrycrd</a> blockchain daemon are documented below. To build, download, or run lbrycrd, see the project <a href="https://github.com/lbryio/lbrycrd/blob/master/README.md">README</a>.</p>
+    <p>Methods and signatures provided by the <a href="/glossary/#lbrycrd">lbrycrd</a> blockchain daemon are documented below. To build, download, or run lbrycrd, see the project <a href="https://github.com/lbryio/lbrycrd/blob/master/README.md">README</a>.</p>
   </div>
 
   <div class="api-content__intro">

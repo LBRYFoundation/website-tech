@@ -14,7 +14,7 @@ Contributors that provide accepted pull requests, well-specified issues, or assi
 
 ## Repository Overview
 
-Typical usage of LBRY does not involve a single piece of software, but several interacting components. If you're new to LBRY, our [Ecosystem Overview](/overview#ecosystem-overview) will teach you how various components interact.
+Typical usage of LBRY does not involve a single piece of software, but several interacting components. If you're new to LBRY, our [Ecosystem Overview](/overview/#ecosystem-overview) will teach you how various components interact.
 
 If you want to contribute to LBRY, there's definitely something for you! The first step is to figure out what project to work on.
 
@@ -22,7 +22,7 @@ If you want to contribute to LBRY, there's definitely something for you! The fir
 
 | Component                                                            | Language (Toolset) | What Is It                                                                                                                                                                                                                                   | Intro Video                       |
 |----------------------------------------------------------------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
-| [lbrycrd](https://github.com/lbryio/lbrycrd)                         | C++                | A full node for the LBRY blockchain, including a standalone wallet. Used by miners and some applications. Most consumer applications do not bundle [lbrycrd](/glossary#lbrycrd) directly, and instead bundle [lbry-sdk](/glossary#lbry-sdk). | [Video](https://odysee.com/intro-to-LBRYcrd:5) |
+| [lbrycrd](https://github.com/lbryio/lbrycrd)                         | C++                | A full node for the LBRY blockchain, including a standalone wallet. Used by miners and some applications. Most consumer applications do not bundle [lbrycrd](/glossary/#lbrycrd) directly, and instead bundle [lbry-sdk](/glossary/#lbry-sdk). | [Video](https://odysee.com/intro-to-LBRYcrd:5) |
 | [lbry-sdk](https://github.com/lbryio/lbry-sdk)                       | Python (asyncio)   | A daemon that can be used directly or to develop other applications. Provides convenience [APIs](/api/daemon/), bundles an SPV wallet client and server, and contains an implementation of the LBRY data network.                            | [Video](https://odysee.com/@lbrytech:1/lbrynet-dev-setup:9) |
 | [schema](https://github.com/lbryio/lbry-sdk/tree/master/lbry/schema) | Protobuf, Python   | Defines the structure of the metadata stored in the LBRY blockchain.                                                                                                                                                                         |                                   |
 
@@ -30,11 +30,11 @@ If you want to contribute to LBRY, there's definitely something for you! The fir
 
 | Application                                                          | Language (Toolset)             | What Is It                                                                                                                                                                                       | Intro Video                           |
 |----------------------------------------------------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| [lbry-desktop](https://github.com/lbryio/lbry-desktop) (and lbry.tv) | JavaScript (ReactJS, Electron) | A desktop browser for the LBRY network for Windows, macOS, and Linux as well as a web interface on lbry.tv. [lbry-desktop](/glossary#lbry-desktop) is built with [lbry-sdk](/glossary#lbry-sdk). | [Video](https://odysee.com/LBRYAppDesign:7) |
-| [lbry-android](https://github.com/lbryio/lbry-android)               | Java                           | A graphical browser for the LBRY network for Android. [lbry-android](/glossary#lbry-android) uses [lbry-sdk](/glossary#lbry-sdk) to interact with the network.                                   | [Video](https://odysee.com/video-2018-10-15053403:e) |
+| [lbry-desktop](https://github.com/lbryio/lbry-desktop) (and lbry.tv) | JavaScript (ReactJS, Electron) | A desktop browser for the LBRY network for Windows, macOS, and Linux as well as a web interface on lbry.tv. [lbry-desktop](/glossary/#lbry-desktop) is built with [lbry-sdk](/glossary/#lbry-sdk). | [Video](https://odysee.com/LBRYAppDesign:7) |
+| [lbry-android](https://github.com/lbryio/lbry-android)               | Java                           | A graphical browser for the LBRY network for Android. [lbry-android](/glossary/#lbry-android) uses [lbry-sdk](/glossary/#lbry-sdk) to interact with the network.                                   | [Video](https://odysee.com/video-2018-10-15053403:e) |
 | [odysee-api](https://github.com/lbryio/odysee-api)                   | Go                             | An API server for https://odysee.com that reimplements some of the SDK APIs.                                                                                                                     |                                       |
 | [odysee-ios](https://github.com/lbryio/odysee-ios)                   | Swift                          | The Odysee IOS app.                                                                                                                                                                              |                                       |
-| [lbry-redux](https://github.com/lbryio/lbry-redux)                   | JavaScript (Redux)             | A common codebase for shared Redux logic between [lbry-desktop](/glossary#lbry-desktop) and [lbry-android](/glossary#lbry-android).                                                              |                                       |
+| [lbry-redux](https://github.com/lbryio/lbry-redux)                   | JavaScript (Redux)             | A common codebase for shared Redux logic between [lbry-desktop](/glossary/#lbry-desktop) and [lbry-android](/glossary/#lbry-android).                                                              |                                       |
 
 ### Websites
 
@@ -59,10 +59,10 @@ Several hundred extremely good-looking, wise and moral people, as well as our CT
 ### How To Contribute Code
 
 1. **Join the Community**. By joining our [chat](https://chat.lbry.org) or our [forum](https://forum.lbry.org), you can interact with other developers when you have questions, ideas, or problems.
-2. **Identify the component you want to work on**. LBRY has code bases that deal with everything from cryptography and distributed systems to end-user graphic user-interfaces. We use Python, JavaScript, C++, Go, and more. See [ecosystem overview](/overview#ecosystem-overview) to find the right project.
-3. **Get set up.** Each repo has a [README](/glossary#README) with clear instructions on how to get the repo up and running properly. Thanks, [Repository Standards](/resources/repository-standards)!
+2. **Identify the component you want to work on**. LBRY has code bases that deal with everything from cryptography and distributed systems to end-user graphic user-interfaces. We use Python, JavaScript, C++, Go, and more. See [ecosystem overview](/overview/#ecosystem-overview) to find the right project.
+3. **Get set up.** Each repo has a [README](/glossary/#README) with clear instructions on how to get the repo up and running properly. Thanks, [Repository Standards](/resources/repository-standards/)!
 4. **Find something to work on**. All actively developed repositories should have issues tagged "Good First Issues" specifically for new contributors. You are also welcome to work on something not currently filed if you have your own idea. Additionally, all repositories have contact information for the maintainer if you have trouble finding an issue to work on.
-5. **Abide coding and commit standards**. Any specific information necessary to know in this regard should be in the project [README](/glossary#README).
+5. **Abide coding and commit standards**. Any specific information necessary to know in this regard should be in the project [README](/glossary/#README).
 6. **Commit early and ask questions**. Is an issue confusing? Please comment and say so! Not sure if you've got the right approach? Commit your code and we'll give feedback. Certain you're doing everything right? Commit it anyway. Once you commit, open a pull request. We encourage work-in-progress commits to let us know you're working on something and to facilitate feedback.
 7. **Accept feedback and finish**. Most pull requests are reviewed within two business days. Once the repository maintainer has approved your contribution, it will get merged and we'll try really hard to give you LBC even if you say no.
 
@@ -76,7 +76,7 @@ We're happy to provide assistance if you're used to working in HTML and CSS but 
 
 Most written content, and especially all technical writing, is checked into source control. To improve content we've written or add new content:
 
-1. Identify which website or application it is in (see the [overview](/overview#ecosystem-overview)).
+1. Identify which website or application it is in (see the [overview](/overview/#ecosystem-overview)).
 2. Search for a quoted phrase of the content you want to change (or use the same technique to identify the folder to create a new document in).
 3. Edit the content via the GitHub interface and submit it as a pull request.
 
@@ -88,7 +88,7 @@ Translation work is primarily organized through the [LBRY Foundation](https://lb
 
 If you want to contribute without getting directly into the code, one of the best ways you can contribute is testing.
 
-A number of our code bases ([lbrycrd](/glossary#lbrycrd), [lbry-sdk](/glossary#lbry-sdk), all applications, more...) go through regular release cycles where new versions are shipped every several weeks. Testing pre-release versions is a great way to help us identify issues and ship bug-free code.
+A number of our code bases ([lbrycrd](/glossary/#lbrycrd), [lbry-sdk](/glossary/#lbry-sdk), all applications, more...) go through regular release cycles where new versions are shipped every several weeks. Testing pre-release versions is a great way to help us identify issues and ship bug-free code.
 
 ### Ways to Test
 
@@ -130,7 +130,7 @@ Feature requests are welcome. Before you submit one be sure to:
 
 Sometimes, you may have a problem but an issue isn't appropriate (or you're not sure if it's a real issue).
 
-Join our [chat](https://chat.lbry.org), our [forum](https://forum.lbry.org), or another [community](/community) and talk to others about it.
+Join our [chat](https://chat.lbry.org), our [forum](https://forum.lbry.org), or another [community](/community/) and talk to others about it.
 
 ## Appreciation
 

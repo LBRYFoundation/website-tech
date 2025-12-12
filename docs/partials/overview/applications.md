@@ -1,6 +1,6 @@
 Applications are the final level of the LBRY stack. They represent how most people will actually use LBRY.
 
-Applications typically use the [lbry-sdk](/glossary#lbry-sdk), which provides convenient API methods for building applications.
+Applications typically use the [lbry-sdk](/glossary/#lbry-sdk), which provides convenient API methods for building applications.
 
 LBRY Inc. currently releases and maintains three applications:
 
@@ -12,6 +12,6 @@ A central idea of LBRY is that there's _not_ a singular way to interact with the
 
 ### Additional Resources
 
-- [Build](/build) teaches you how to create your own app.
-- [Contribute](/contribute) guides you on how to improve LBRY Inc. applications.
+- [Build](/build/) teaches you how to create your own app.
+- [Contribute](/contribute/) guides you on how to improve LBRY Inc. applications.
 - [spee.ch README](https://github.com/lbryio/spee.ch) explains how to host your own instance.

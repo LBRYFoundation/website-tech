@@ -6,7 +6,7 @@ description: Learn how to setup the LBRY Hub.
 
 ## Running
 
-The Hub needs a running Elasticsearch instance. [Learn how to set up Elasticsearch.](/tutorials/setup-elasticsearch)
+The Hub needs a running Elasticsearch instance. [Learn how to set up Elasticsearch.](/tutorials/setup-elasticsearch/)
 
 ### With Docker Compose
 

@@ -6,7 +6,7 @@ description: Learn how to build your own app via LBRY in this comprehensive guid
 
 ## Introduction
 
-Want to build something on top of LBRY? This is the place to get started. If this is your first introduction to LBRY, you should read the [Overview](./overview.md) first. If you would rather build with us, check out our [Contributing Guide](./contribute.md).
+Want to build something on top of LBRY? This is the place to get started. If this is your first introduction to LBRY, you should read the [Overview](/overview/) first. If you would rather build with us, check out our [Contributing Guide](/contribute/).
 
 There are exactly 1,000,006 app ideas that could work on the LBRY network, but it doesn't make sense for _everything_ to be built on it.
 
@@ -49,7 +49,7 @@ npm run dev
 
 #### 2. Verify the app works
 
-Type a word into the text input and click the button to [resolve](/api/daemon/#resolve) it. This performs a [claim](/glossary#claim) lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
+Type a word into the text input and click the button to [resolve](/api/daemon/#resolve) it. This performs a [claim](/glossary/#claim) lookup, which retrieves metadata the title, thumbnail, and file type from the LBRY blockchain.
 
 Try resolving `lbry://doitlive`.
 
@@ -121,7 +121,7 @@ Whether your blockchain application is a web application, desktop application, o
 
 In each case, you'll follow the typical steps to build a basic application. Then, if your app is reading data from the blockchain and presenting it to users, you'll want to [follow the steps for using chainquery](#chainquery).
 
-If your application needs to send funds, you'll want to [follow the steps for using lbrycrd](#lbrycrd). Note that it is also possible to move funds by using the [LBRY SDK](#sdk), but the SDK does not provide a full blockchain node, only an [SPV](/glossary#SPV) wallet.
+If your application needs to send funds, you'll want to [follow the steps for using lbrycrd](#lbrycrd). Note that it is also possible to move funds by using the [LBRY SDK](#sdk), but the SDK does not provide a full blockchain node, only an [SPV](/glossary/#SPV) wallet.
 
 #### Other Web Applications
 
@@ -196,7 +196,7 @@ Once that is downloaded, there are two steps to get it integrated into your app.
 
 First, run `lbrynet start` in the directory you downloaded the SDK. This starts the API server and connects to the LBRY network.
 
-Then, use an API wrapper to talk to the SDK or write your own. There are a number of simple [API wrappers](/resources/api-wrappers) available in several different languages, created by LBRY community members! These allow you to easily send commands to the SDK in the language of your choice.
+Then, use an API wrapper to talk to the SDK or write your own. There are a number of simple [API wrappers](/resources/api-wrappers/) available in several different languages, created by LBRY community members! These allow you to easily send commands to the SDK in the language of your choice.
 
 If a wrapper for the language you would like to use doesn't exist, it is still fairly easy to interact with. The SDK provides a JSON-RPC server at `localhost:5279` for interaction. You can call it via `cURL` or the HTTP functionality provided by the language you are using. You can look at an existing wrapper in another language for more detail.
 
@@ -204,7 +204,7 @@ The API provided by the SDK is documented [here](/api/daemon/).
 
 ### Chainquery
 
-[Chainquery](https://github.com/lbryio/chainquery) parses and syncs blockchain data in realtime to an SQL database. Applications that want to query blockchain data, whether that's transactions or [claim](/glossary#claim) metadata, will find it useful to use Chainquery.
+[Chainquery](https://github.com/lbryio/chainquery) parses and syncs blockchain data in realtime to an SQL database. Applications that want to query blockchain data, whether that's transactions or [claim](/glossary/#claim) metadata, will find it useful to use Chainquery.
 
 You can download the latest version from the [releases page](https://github.com/lbryio/chainquery/releases) or via the following URLs, which will always download the latest version for each operating system:
 
@@ -220,11 +220,11 @@ Note: chainquery has both 32-bit and 64-bit builds, which the redirect URLs do n
 
 The `README` bundled with Chainquery provides the latest steps for running Chainquery.
 
-After following those steps, you'll have an SQL database that stays up to date, including [mempool](/glossary#mempool) transactions. You can then query this database using the functionality provided by the language you're developing in.
+After following those steps, you'll have an SQL database that stays up to date, including [mempool](/glossary/#mempool) transactions. You can then query this database using the functionality provided by the language you're developing in.
 
 ### lbrycrd
 
-[lbrycrd](https://github.com/lbryio/lbrycrd) provides a full blockchain node and a daemon for making JSON-RPC calls. Applications that require full blockchain functionality (as opposed to [SPV](/glossary#SPV), provided by the [SDK](#sdk) will want to use lbrycrd. Most applications will not need to use lbrycrd.
+[lbrycrd](https://github.com/lbryio/lbrycrd) provides a full blockchain node and a daemon for making JSON-RPC calls. Applications that require full blockchain functionality (as opposed to [SPV](/glossary/#SPV), provided by the [SDK](#sdk) will want to use lbrycrd. Most applications will not need to use lbrycrd.
 
 You can download the latest version from the [releases page](https://github.com/lbryio/lbrycrd/releases) or via the following URLs, which will always download the latest version for each operating system:
 
