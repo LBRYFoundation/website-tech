@@ -15,6 +15,7 @@
   },
   "packageManager": "yarn@1.22.22",
   "dependencies": {
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "prettier": "^3.7.4"
   }
 }

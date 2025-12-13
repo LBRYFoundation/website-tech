@@ -584,7 +584,7 @@ function generateMemeCreator(selector) {
   for (const image of images)
     renderedImages.push(`<img alt="${image.alt}" class="playground-content__meme__canvas__thumbnail" src="${image.src}"/>`);
 
-  const memeCreator = `
+  document.querySelector(selector).innerHTML = `
     <div class="playground-content__meme__canvas">
       <img alt="Base image for LBRY meme creator" id="base-image" style="height: 0; position: absolute; visibility: hidden;"/>
       <canvas id="meme-canvas" height="600" width="800">Unfortunately, it looks like canvas is <strong>not supported</strong> in your browser</canvas>
@@ -662,8 +662,6 @@ function generateMemeCreator(selector) {
       </fieldset>
     </form>
   `;
-
-  document.querySelector(selector).innerHTML = memeCreator;
 }
 
 onMounted(() => {

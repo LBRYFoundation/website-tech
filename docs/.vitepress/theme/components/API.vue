@@ -707,9 +707,6 @@ onMounted(async() => {
   color:  #fff;
   position: sticky;
   z-index: 10;
-
-   /*GOOD OL' SAFARI*/
-  position: -webkit-sticky; /* sass-lint:disable-line no-duplicate-properties*/
 }
 
 .api-content__item {

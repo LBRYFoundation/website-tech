@@ -15,7 +15,7 @@ This guide provides step-by-step instructions to setup and build the [LBRY Andro
 - At least 15GB of free disk space
 - Internet access
 
-## Environment Setup
+## Environment Setup {#setup-environment}
 
 You can set up your environment via Docker or manually.
 
