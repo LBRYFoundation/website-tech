@@ -1,23 +1,25 @@
 <script setup>
-import {onMounted} from "vue";
+import { onMounted } from "vue";
 
 function escapeSpecialCharacters(contentToEscape) {
   const tagsToReplace = {
     "&": "&amp;",
     "<": "&lt;",
-    ">": "&gt;"
+    ">": "&gt;",
   };
 
-  return (contentToEscape || '').replace(/[&<>]/g, tag => tagsToReplace[tag] || tag);
+  return (contentToEscape || "").replace(
+    /[&<>]/g,
+    (tag) => tagsToReplace[tag] || tag,
+  );
 }
 
 function refToBranch(ref) {
-  if (ref)
-    return ref.replace("refs/heads/", "");
+  if (ref) return ref.replace("refs/heads/", "");
 }
 
 function generateEvent(event) {
-  switch(event.type) {
+  switch (event.type) {
     case "CommitCommentEvent":
       return `
         <strong><a
@@ -235,7 +237,7 @@ function generateEvent(event) {
   }
 }
 
-function generateGitHubFeed(feed,selector){
+function generateGitHubFeed(feed, selector) {
   const renderedEvents = [];
 
   for (const event of feed) {
@@ -261,9 +263,9 @@ function generateGitHubFeed(feed,selector){
   const now = new Date();
   const lastGithubFeedUpdate = {
     date: now.toISOString().split("T")[0],
-    time: now.toLocaleTimeString('en-US', {
-      timeZone: 'UTC'
-    })
+    time: now.toLocaleTimeString("en-US", {
+      timeZone: "UTC",
+    }),
   };
 
   document.querySelector(selector).innerHTML = `
@@ -274,7 +276,7 @@ function generateGitHubFeed(feed,selector){
 }
 
 function generateUrl(type, event) {
-  switch(type) {
+  switch (type) {
     case "actor":
       return `https://github.com/${event.actor.display_login}`;
 
@@ -307,31 +309,37 @@ function generateUrl(type, event) {
   }
 }
 
-async function fetchGitHubFeed(){
+async function fetchGitHubFeed() {
   const headers = new Headers();
   // if(process?.env?.GITHUB_TOKEN || null){
   //   headers.set('Authorization',`Bearer ${process.env.GITHUB_TOKEN}`);
   // }
 
-  const response = await fetch(`https://api.github.com/orgs/lbryfoundation/events`,{
-    headers: headers,
-  });
-  try{
+  const response = await fetch(
+    `https://api.github.com/orgs/lbryfoundation/events`,
+    {
+      headers: headers,
+    },
+  );
+  try {
     return await response.json();
-  }catch(ex){
+  } catch (ex) {
     throw new Error("Failed parsing JSON");
   }
 }
 
-async function updateGitHubFeed(){
+async function updateGitHubFeed() {
   const feed = await fetchGitHubFeed();
-  generateGitHubFeed(feed,'#github-feed');
+  generateGitHubFeed(feed, "#github-feed");
 }
 
 onMounted(async () => {
-  setInterval(async () => {
-    await updateGitHubFeed();
-  },5 * 60 * 1000);
+  setInterval(
+    async () => {
+      await updateGitHubFeed();
+    },
+    5 * 60 * 1000,
+  );
 
   await updateGitHubFeed();
 });
@@ -394,9 +402,10 @@ onMounted(async () => {
 
     @media (min-width: 1301px) {
       width: calc(100% - (1rem + 5%));
-      top: 2.15rem; left: 0;
+      top: 2.15rem;
+      left: 0;
 
-      color: rgba(0,0,0, 0.045);
+      color: rgba(0, 0, 0, 0.045);
       font-size: 4rem;
       position: absolute;
     }
@@ -467,7 +476,7 @@ onMounted(async () => {
 
   > p:first-of-type {
     @media (max-width: 700px) {
-      box-shadow: 0 2px 5px rgba(0,0,0, 0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     code {
@@ -495,8 +504,10 @@ onMounted(async () => {
     }
 
     @media (max-width: 700px) {
-      width: 90%; padding: 1rem;
-      top: -3.5rem; left: 5%;
+      width: 90%;
+      padding: 1rem;
+      top: -3.5rem;
+      left: 5%;
 
       background-color: white;
       border: 1px solid gray;
@@ -515,11 +526,13 @@ onMounted(async () => {
   object-position: center;
 
   @media (min-width: 701px) {
-    width: 2.5rem; height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   @media (max-width: 700px) {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -531,7 +544,6 @@ onMounted(async () => {
     padding-top: 1rem;
   }
 }
-
 </style>
 
 <template>

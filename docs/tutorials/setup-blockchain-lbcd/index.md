@@ -44,7 +44,7 @@ services:
       - "lbcd:/root/.lbcd"
     ports:
       - "127.0.0.1:9245:9245"
-      - "9246:9246"  # p2p port
+      - "9246:9246" # p2p port
 ```
 
 Then run:

@@ -25,7 +25,7 @@ services:
       - discovery.type=single-node
       - indices.query.bool.max_clause_count=8192
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Dlog4j2.formatMsgNoLookups=true -Xms8g -Xmx8g"  # no more than 32, remember to disable swap
+      - "ES_JAVA_OPTS=-Dlog4j2.formatMsgNoLookups=true -Xms8g -Xmx8g" # no more than 32, remember to disable swap
     ulimits:
       memlock:
         soft: -1

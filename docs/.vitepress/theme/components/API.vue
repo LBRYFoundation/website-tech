@@ -1,28 +1,26 @@
 <script>
 export default {
-  props: ['api'],
+  props: ["api"],
 };
 </script>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
-const props = defineProps(['api']);
+const props = defineProps(["api"]);
 
-const repository = props.api === "daemon" ?
-  "lbry-sdk" :
-  "lbrycrd";
+const repository = props.api === "daemon" ? "lbry-sdk" : "lbrycrd";
 
 const filePathBlockchain = "/contrib/devtools/generated/api_v1.json";
 const filePathSdk = "docs/api.json";
 const rawGitHubBase = "https://cdn.jsdelivr.net/gh/lbryfoundation/";
 
-const tag = 'master';
-const version = 'master';
+const tag = "master";
+const version = "master";
 
 const apiResponse = ref(null);
 
-const versions = ['master'];
+const versions = ["master"];
 
 // async function getTags(repositoryName) {
 //   const {versions: data} = await (await fetch(`https://data.jsdelivr.com/v1/packages/gh/lbryfoundation/${repositoryName}`)).json();
@@ -72,10 +70,9 @@ const versions = ['master'];
 function renderArguments(args) {
   const argumentContent = [];
 
-  if (!args || args.length === 0)
-    return argumentContent;
+  if (!args || args.length === 0) return argumentContent;
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     argumentContent.push(`
       <li class="api-content__body-argument">
         <div class="left">
@@ -99,7 +96,7 @@ function renderExamples(args) {
     return exampleContent;
   }
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     exampleContent.push(`
       ${arg.title ? `<h3>${arg.title}</h3><br/>` : ""}
       ${arg.cli ? `<pre data-api-example-type="cli"><code>${arg.cli}</code></pre>` : ""}
@@ -107,11 +104,15 @@ function renderExamples(args) {
       ${arg.lbrynet ? `<pre data-api-example-type="lbrynet"><code>${arg.lbrynet}</code></pre>` : ""}
       ${arg.python ? `<pre data-api-example-type="python"><code>${arg.python}</code></pre>` : ""}
 
-      ${arg.output ? `
+      ${
+        arg.output
+          ? `
         <h3>Output</h3><br/>
         <pre><code>${arg.output}</code></pre>
         <hr/>
-      ` : ""}
+      `
+          : ""
+      }
     `);
   });
 
@@ -121,8 +122,7 @@ function renderExamples(args) {
 function renderReturns(args) {
   let returnContent = [];
 
-  if (!args || args.length === 0)
-    return returnContent;
+  if (!args || args.length === 0) return returnContent;
 
   returnContent = dedent(JSON.parse(JSON.stringify(args)));
   return returnContent;
@@ -130,53 +130,51 @@ function renderReturns(args) {
 
 function dedent(string) {
   // Split into lines
-  const lines = string.split('\n');
+  const lines = string.split("\n");
 
-  if (lines[0].trim() === '') lines.shift();
-  if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+  if (lines[0].trim() === "") lines.shift();
+  if (lines.length > 0 && lines[lines.length - 1].trim() === "") lines.pop();
   const indents = lines
     .slice(1)
-    .filter(line => line.trim() !== '')
-    .map(line => line.match(/^\s*/)[0].length);
+    .filter((line) => line.trim() !== "")
+    .map((line) => line.match(/^\s*/)[0].length);
   const minIndent = indents.length > 0 ? Math.min(...indents) : 0;
-  return lines.map(line => {
-    const leadingWhitespace = line.match(/^\s*/)[0];
-    if (leadingWhitespace.length >= minIndent) {
-      return line.slice(minIndent);
-    }
-    return line;
-  }).join('\n');
+  return lines
+    .map((line) => {
+      const leadingWhitespace = line.match(/^\s*/)[0];
+      if (leadingWhitespace.length >= minIndent) {
+        return line.slice(minIndent);
+      }
+      return line;
+    })
+    .join("\n");
 }
 
 ///
 
 function renderVersionSelector() {
-  const options = [
-    "<option disabled>Select a version</option>"
-  ];
+  const options = ["<option disabled>Select a version</option>"];
 
   let optionIndex = 0;
 
-  versions.forEach(version => {
+  versions.forEach((version) => {
     optionIndex++;
     let selectedOption = false;
 
-    if (tag && tag === version)
-      selectedOption = true;
-    else if (optionIndex === 1)
-      selectedOption = true;
+    if (tag && tag === version) selectedOption = true;
+    else if (optionIndex === 1) selectedOption = true;
 
     options.push(
-      `<option value="${props.api}-${version}"${selectedOption ? " selected" : ""}>${version}</option>`
+      `<option value="${props.api}-${version}"${selectedOption ? " selected" : ""}>${version}</option>`,
     );
   });
 
   return options;
 }
 
-function createSidebar(){
-  if(apiResponse.value){
-    if(props.api==='daemon'){
+function createSidebar() {
+  if (apiResponse.value) {
+    if (props.api === "daemon") {
       return createSdkSidebar(apiResponse.value);
     }
     return createApiSidebar(apiResponse.value);
@@ -187,13 +185,13 @@ function createSdkSidebar(apiDetails) {
   const sectionTitles = Object.keys(apiDetails);
   const apiSidebar = [];
 
-  sectionTitles.forEach(title => {
+  sectionTitles.forEach((title) => {
     const commands = apiDetails[title].commands;
 
     apiSidebar.push(`
       <ul class="api-toc__section">
         <li class="api-toc__title">${title}</li>
-        ${(commands.map(command => `<li class="api-toc__command"><a href="#${command.name}" title="Go to ${command.name} section">${command.name}</a></li>`)).join("")}
+        ${commands.map((command) => `<li class="api-toc__command"><a href="#${command.name}" title="Go to ${command.name} section">${command.name}</a></li>`).join("")}
       </ul>
     `);
   });
@@ -204,7 +202,7 @@ function createSdkSidebar(apiDetails) {
 function createApiSidebar(apiDetails) {
   const apiSidebar = [];
 
-  apiDetails.forEach(apiDetail => {
+  apiDetails.forEach((apiDetail) => {
     apiSidebar.push(`
       <li class="api-toc__command">
         <a href="#${apiDetail.name}" title="Go to ${apiDetail.name} section">
@@ -222,23 +220,33 @@ function renderCodeLanguageToggles() {
 
   return [
     "<button class='api-content__item menu' id='toggle-menu'>menu</button>",
-    !onSdkPage ? "<button class='api-content__item' id='toggle-cli' type='button'>cli</button>" : "",
+    !onSdkPage
+      ? "<button class='api-content__item' id='toggle-cli' type='button'>cli</button>"
+      : "",
     "<button class='api-content__item' id='toggle-curl' type='button'>curl</button>",
-    onSdkPage ? "<button class='api-content__item' id='toggle-lbrynet' type='button'>lbrynet</button>" : "",
-    onSdkPage ? "<button class='api-content__item' id='toggle-python' type='button'>python</button>" : ""
+    onSdkPage
+      ? "<button class='api-content__item' id='toggle-lbrynet' type='button'>lbrynet</button>"
+      : "",
+    onSdkPage
+      ? "<button class='api-content__item' id='toggle-python' type='button'>python</button>"
+      : "",
   ];
 }
 
-function createDocumentation(){
-  return `
+function createDocumentation() {
+  return (
+    `
     <div><!--EMPTY--></div>
-    <nav class="api-content__items">`+renderCodeLanguageToggles()+`</nav>`
-    + createHeader()
-    + createContent();
+    <nav class="api-content__items">` +
+    renderCodeLanguageToggles() +
+    `</nav>` +
+    createHeader() +
+    createContent()
+  );
 }
 
 function createHeader() {
-  if(props.api==='daemon'){
+  if (props.api === "daemon") {
     return `<div class="api-content__body">
     <h2>lbry-sdk ${tag}</h2>
     <p>Methods and signatures provided by the <a href="/glossary/#lbry-sdk">lbry-sdk</a> daemon are documented below. To build, download, or run the daemon, see the project <a href="https://github.com/lbryio/lbry-sdk/blob/master/README.md">README</a>.</p>
@@ -249,7 +257,7 @@ function createHeader() {
     <pre><code>https://github.com/lbryio/lbry-sdk</code></pre>
   </div>`;
   }
-  if(props.api==='blockchain'){
+  if (props.api === "blockchain") {
     return ` <div class="api-content__body">
     <h2>lbrycrd ${version}</h2>
     <p>Methods and signatures provided by the <a href="/glossary/#lbrycrd">lbrycrd</a> blockchain daemon are documented below. To build, download, or run lbrycrd, see the project <a href="https://github.com/lbryio/lbrycrd/blob/master/README.md">README</a>.</p>
@@ -273,9 +281,9 @@ function createHeader() {
   // }
 }
 
-function createContent(){
-  if(apiResponse.value){
-    if(props.api==='daemon'){
+function createContent() {
+  if (apiResponse.value) {
+    if (props.api === "daemon") {
       return createSdkContent(apiResponse.value);
     }
     return createApiContent(apiResponse.value);
@@ -286,21 +294,29 @@ function createSdkContent(apiDetails) {
   const apiContent = [];
   const sectionTitles = Object.keys(apiDetails);
 
-  sectionTitles.forEach(title => {
+  sectionTitles.forEach((title) => {
     const commands = apiDetails[title].commands;
     const description = apiDetails[title].doc;
 
     apiContent.push(
-      commands.length ?
-        commands.map(command => createSdkContentSections(title, description, command)).join("") :
-        ""
+      commands.length
+        ? commands
+            .map((command) =>
+              createSdkContentSections(title, description, command),
+            )
+            .join("")
+        : "",
     );
   });
 
   return apiContent;
 }
 
-function createSdkContentSections(sectionTitle, sectionDescription, sectionDetails) {
+function createSdkContentSections(
+  sectionTitle,
+  sectionDescription,
+  sectionDetails,
+) {
   return `
     <div class="api-content__body">
       <h2 id="${sectionDetails.name}">${sectionDetails.name}</h2>
@@ -324,7 +340,7 @@ function createSdkContentSections(sectionTitle, sectionDescription, sectionDetai
 function createApiContent(apiDetails) {
   const apiContent = [];
 
-  apiDetails.forEach(apiDetail => {
+  apiDetails.forEach((apiDetail) => {
     let apiDetailsReturns = "";
 
     if (apiDetail.returns)
@@ -350,35 +366,35 @@ function createApiContent(apiDetails) {
 
 ////
 
-function createAPIReferenceURL(repository,tag){
+function createAPIReferenceURL(repository, tag) {
   const baseURLRepository = `${rawGitHubBase}${repository}@${tag}/`;
 
-  if(repository === 'lbrycrd'){
+  if (repository === "lbrycrd") {
     return `${baseURLRepository}${filePathBlockchain}`;
   }
-  if(repository === 'lbry-sdk'){
+  if (repository === "lbry-sdk") {
     return `${baseURLRepository}${filePathSdk}`;
   }
 
   throw new Error("Failed to create API Reference URL.");
 }
 
-async function fetchAPIReferenceJSON(url){
+async function fetchAPIReferenceJSON(url) {
   const response = await fetch(url);
-  try{
+  try {
     return await response.json();
-  }catch(ex){
+  } catch (ex) {
     throw new Error("Failed parsing JSON");
   }
 }
 
-onMounted(async() => {
-  const url = createAPIReferenceURL(repository,tag);
+onMounted(async () => {
+  const url = createAPIReferenceURL(repository, tag);
   apiResponse.value = await fetchAPIReferenceJSON(url);
 
-  if(props.api==='blockchain'){
+  if (props.api === "blockchain") {
     document.getElementById("toggle-cli").click();
-  }else{
+  } else {
     document.getElementById("toggle-curl").click();
   }
 });
@@ -400,8 +416,10 @@ onMounted(async() => {
   position: relative;
 
   &::after {
-    width: 100%; height: 1px;
-    bottom: -1px; left: 0;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
 
     background-color: #888;
     content: "";
@@ -410,10 +428,11 @@ onMounted(async() => {
 }
 
 .api-toc {
-  width: 200px; height: calc(100vh - 4rem); /* navigation is 4rem tall*/
+  width: 200px;
+  height: calc(100vh - 4rem); /* navigation is 4rem tall*/
   bottom: 0;
 
-  background-color:  #fff;
+  background-color: #fff;
   border-right: 1px solid #888;
   overflow-x: hidden;
   overflow-y: auto;
@@ -469,12 +488,14 @@ onMounted(async() => {
 }
 
 .api-toc__search-clear {
-  width: 1.25rem; height: 1.25rem;
-  top: 0.6rem; right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 0.6rem;
+  right: 0.75rem;
 
   background-color: #000;
   border-radius: 50%;
-  color:  #fff;
+  color: #fff;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1.15;
@@ -589,7 +610,7 @@ onMounted(async() => {
   table {
     width: 100%;
 
-    border: 1px solid rgba( 255,255,255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.3rem;
     border-spacing: 0;
     font-size: 0.8rem;
@@ -606,11 +627,11 @@ onMounted(async() => {
   }
 
   th {
-    border-bottom: 1px solid rgba( 255,255,255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   tr:nth-child(even) {
-    background-color: rgba( 255,255,255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -645,7 +666,7 @@ onMounted(async() => {
   }
 
   &:nth-child(even) {
-    background-color: rgba(127,127,127, 0.2);
+    background-color: rgba(127, 127, 127, 0.2);
   }
 
   .left,
@@ -686,9 +707,9 @@ onMounted(async() => {
 .api-content__example,
 .api-content__intro {
   padding: 2rem;
-  background-color: rgba(0,0,0, 0.9);
-  border-bottom: 1px solid rgba( 255,255,255, 0.1);
-  color:  #fff;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
   position: relative;
 
   pre {
@@ -696,15 +717,14 @@ onMounted(async() => {
   }
 }
 
-
-
 .api-content__items {
   width: 100%;
   padding: 1rem 2rem;
-  top: 4rem; right: 0;
+  top: 4rem;
+  right: 0;
 
   background-color: #000;
-  color:  #fff;
+  color: #fff;
   position: sticky;
   z-index: 10;
 }
@@ -748,18 +768,41 @@ pre {
 <template>
   <div class="__slate">
     <aside class="api-toc">
-      <select class="api-toc__select" onchange="changeDocumentationVersion(value);" v-html="renderVersionSelector()"></select>
+      <select
+        class="api-toc__select"
+        onchange="changeDocumentationVersion(value)"
+        v-html="renderVersionSelector()"
+      ></select>
       <div class="api-toc__search">
-        <input class="api-toc__search-field" id="input-search" placeholder="Search" type="search"/>
-        <div class="api-toc__search-clear" id="clear-search" title="Clear search query">&times;</div>
+        <input
+          class="api-toc__search-field"
+          id="input-search"
+          placeholder="Search"
+          type="search"
+        />
+        <div
+          class="api-toc__search-clear"
+          id="clear-search"
+          title="Clear search query"
+        >
+          &times;
+        </div>
         <ul class="api-toc__search-results"></ul>
       </div>
-      <ul class="api-toc__commands" id="toc" role="navigation" v-html="createSidebar()"></ul>
+      <ul
+        class="api-toc__commands"
+        id="toc"
+        role="navigation"
+        v-html="createSidebar()"
+      ></ul>
     </aside>
 
     <section class="api-content">
-      <div class="api-documentation" id="toc-content" v-html="createDocumentation()">
-      </div>
+      <div
+        class="api-documentation"
+        id="toc-content"
+        v-html="createDocumentation()"
+      ></div>
     </section>
   </div>
 </template>

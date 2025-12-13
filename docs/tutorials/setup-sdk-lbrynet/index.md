@@ -15,6 +15,7 @@ The media server RPC will run on `127.0.0.1:5279` by default, so it is only acce
 - Extract the ZIP file.
 
 - Run:
+
 ```shell
 lbrynet start
 ```

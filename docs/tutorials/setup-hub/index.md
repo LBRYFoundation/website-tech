@@ -40,7 +40,7 @@ services:
     restart: always
     network_mode: host
     ports:
-      - "127.0.0.1:19080:19080"  # elastic notifier port
+      - "127.0.0.1:19080:19080" # elastic notifier port
     volumes:
       - "lbry_rocksdb:/database"
     environment:
@@ -60,7 +60,7 @@ services:
     network_mode: host
     ports:
       - "50001:50001" # electrum rpc port and udp ping port
-      - "2112:2112"   # comment out to disable prometheus metrics
+      - "2112:2112" # comment out to disable prometheus metrics
     volumes:
       - "lbry_rocksdb:/database"
     environment:
@@ -75,7 +75,7 @@ services:
       - "--max_query_workers=4"
       - "--host=0.0.0.0"
       - "--max_sessions=100000"
-      - "--prometheus_port=2112"                # comment out to disable prometheus metrics
+      - "--prometheus_port=2112" # comment out to disable prometheus metrics
 ```
 
 Then run:

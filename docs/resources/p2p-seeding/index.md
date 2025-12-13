@@ -9,12 +9,15 @@ A very important step in supporting the network resilience is hosting content in
 This document aims to explain P2P configuration and troubleshooting from small to large nodes. If you don't know how to change SDK settings, check [this other document first](/resources/daemon-settings/).
 
 ## Reachability
+
 The first priority when seeding content is making sure there is a way for other nodes to reach you across the internet.
 
 ### Figuring out your ports
-In order to troubleshoot reachability, we start by checking your configuration for the UDP and TCP ports. By default, they will both be set to 4444. Those can be found on the configuration under the keys `udp_port` and `tcp_port`. Please set them both to the same value as this helps connectivity trough [hole punching](https://en.wikipedia.org/wiki/Hole_punching_(networking)) and ease of management.
+
+In order to troubleshoot reachability, we start by checking your configuration for the UDP and TCP ports. By default, they will both be set to 4444. Those can be found on the configuration under the keys `udp_port` and `tcp_port`. Please set them both to the same value as this helps connectivity trough [hole punching](<https://en.wikipedia.org/wiki/Hole_punching_(networking)>) and ease of management.
 
 ### Checking for reachability
+
 There are some websites providing generic ways to check ports, like:
 
 - https://www.portcheckers.com/

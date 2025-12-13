@@ -14,7 +14,7 @@ Sample daemon_settings.yml file:
 
 ```yml
 tcp_port: 3335
-lbryum_servers: ['spv11.lbry.com:50001','spv19.lbry.com:50001']
+lbryum_servers: ["spv11.lbry.com:50001", "spv19.lbry.com:50001"]
 download_directory: 'c:\lbry\Downloads'
 use_upnp: false
 ```
@@ -22,31 +22,32 @@ use_upnp: false
 To run the SDK with a specific configuration file, launch it by passing the config path: `lbrynet start --config=c:\path\to\conf\daemon_settings.yml`. To run in debug mode, start with `lbrynet start --verbose=lbrynet`.
 
 ## Configuration options
+
 Configuration options are organized by their respective areas: Files, Wallet, Network, Security and Other.
 
 ### Files
 
-| Setting                | Format  | Default value                                         | Sample Values      | Description                                                                          |
-|------------------------|---------|-------------------------------------------------------|--------------------|--------------------------------------------------------------------------------------|
-| data_dir               | string  | [varies by OS](https://lbry.com/faq/lbry-directories) | 'c:\lbry\lbrynet\' | Where to store the lbrynet folder, which includes blob files, logs and   config data |
-| delete_blobs_on_remove | boolean | true                                                  | false              | Delete blobs on a file_delete call?                                                  |
-| download_dir           | string  | local downloads folder                                | 'c:\lbry\lbrynet\' | Location of downloaded output files                                                  |
+| Setting                | Format  | Default value                                         | Sample Values      | Description                                                                        |
+| ---------------------- | ------- | ----------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------- |
+| data_dir               | string  | [varies by OS](https://lbry.com/faq/lbry-directories) | 'c:\lbry\lbrynet\' | Where to store the lbrynet folder, which includes blob files, logs and config data |
+| delete_blobs_on_remove | boolean | true                                                  | false              | Delete blobs on a file_delete call?                                                |
+| download_dir           | string  | local downloads folder                                | 'c:\lbry\lbrynet\' | Location of downloaded output files                                                |
 
 ### Wallet
 
-| Setting         | Format  | Default value                                         | Sample Values                      | Description                                                                                       |
-|-----------------|---------|-------------------------------------------------------|------------------------------------|---------------------------------------------------------------------------------------------------|
-| blockchain_name | string  | 'lbrycrd_main'                                        | 'lbrycrd_regtest'                  | Blockchain network to connect to                                                                  |
-| lbryum_servers  | list    | ['spv11.lbry.com:50001','spv19.lbry.com:50001']       | ["mylbryum.lbry.com:50001]         | SPV wallet server address(Default servers are spv11-spv19)                                        |
-| wallet_dir      | string  | [varies by OS](https://lbry.com/faq/lbry-directories) | 'c:\lbry\lbryum\'                  | Wallet data location                                                                              |
-| max_key_fee     | json    | {'currency': 'USD', 'amount': 50.0}                   | {'currency': 'LBC', 'amount': 5.0} | Max payment allowed for content                                                                   |
-| wallet          | string  | 'lbryum'                                              | 'lbrycrd'                          | Choice of wallet software, SPV (lbryum) vs full node (lbrycrd). Currently   only lbryum supported |
-| use_keyring     | boolean | false                                                 | true                               | Store wallet password in keyring (not currently available)                                        |
+| Setting         | Format  | Default value                                         | Sample Values                      | Description                                                                                     |
+| --------------- | ------- | ----------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| blockchain_name | string  | 'lbrycrd_main'                                        | 'lbrycrd_regtest'                  | Blockchain network to connect to                                                                |
+| lbryum_servers  | list    | ['spv11.lbry.com:50001','spv19.lbry.com:50001']       | ["mylbryum.lbry.com:50001]         | SPV wallet server address(Default servers are spv11-spv19)                                      |
+| wallet_dir      | string  | [varies by OS](https://lbry.com/faq/lbry-directories) | 'c:\lbry\lbryum\'                  | Wallet data location                                                                            |
+| max_key_fee     | json    | {'currency': 'USD', 'amount': 50.0}                   | {'currency': 'LBC', 'amount': 5.0} | Max payment allowed for content                                                                 |
+| wallet          | string  | 'lbryum'                                              | 'lbrycrd'                          | Choice of wallet software, SPV (lbryum) vs full node (lbrycrd). Currently only lbryum supported |
+| use_keyring     | boolean | false                                                 | true                               | Store wallet password in keyring (not currently available)                                      |
 
 ### Network
 
 | Setting                      | Format  | Default value              | Sample Values            | Description                                                                      |
-|------------------------------|---------|----------------------------|--------------------------|----------------------------------------------------------------------------------|
+| ---------------------------- | ------- | -------------------------- | ------------------------ | -------------------------------------------------------------------------------- |
 | api                          | string  | localhost:5279             | 0:0:0:0:5280             | IP address and port the SDK API will listen on                                   |
 | streaming_server             | string  | localhost:5280             | 0:0:0:0:5280             | IP address and port the media/streaming server will listen on                    |
 | cache_time                   | integer | 150                        | 90                       | How long to keep resolve data in cache                                           |
@@ -75,6 +76,6 @@ Configuration options are organized by their respective areas: Files, Wallet, Ne
 ### Other
 
 | Setting            | Format  | Default value | Sample Values                  | Description                                                                                                      |
-|--------------------|---------|---------------|--------------------------------|------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ------- | ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | components_to_skip | list    | []            | ['reflector','hash_announcer'] | Disable components, [see entire list here](https://github.com/lbryio/lbry-sdk/wiki/Component-Dependencies-Table) |
 | share_usage_data   | boolean | true          | false                          | Share analytics data                                                                                             |

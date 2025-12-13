@@ -5,12 +5,15 @@ description: Step-by-step build instructions for the LBRY Android App
 # Building the LBRY Android App
 
 ## Introduction
+
 This guide provides step-by-step instructions to setup and build the [LBRY Android App](https://lbry.com/android) for development purposes.
 
 ### Estimated Time
+
 25 - 40 minutes
 
 ### Prerequisites
+
 - A computer running Linux with `apt` (otherwise, alter the package installation instructions accordingly)
 - At least 15GB of free disk space
 - Internet access

@@ -9,6 +9,7 @@ This guide will help you setup and maintain a LBRY DHT [bootstrap node](https://
 After finishing and checking that it works, if you want to add your node to the SDK bootstrap list just open a PR adding yourself to the [conf file](https://github.com/lbryio/lbry-sdk/blob/master/lbry/conf.py#L694) or an issue on the [SDK repo](https://github.com/lbryio/lbry-sdk/).
 
 ## Requirements
+
 - Being reachable over UDP on the internet at some port
 - 1GB of memory
 - Docker or Python 3.7 (check [pyenv](https://github.com/pyenv/pyenv) if your Linux distribution doesn't offer that version)

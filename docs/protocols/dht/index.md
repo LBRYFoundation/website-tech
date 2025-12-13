@@ -25,6 +25,7 @@ The request has a property `3` with value `ping`.
 In protocol version `0`, there are no request arguments.
 
 In protocol version `1`, there is 1 request argument:
+
 - A dictionary containing `protocolVersion` with integer value `1`.
 
 In both versions, the response has a property `3` with value `pong`.
@@ -34,9 +35,11 @@ In both versions, the response has a property `3` with value `pong`.
 The request has a property `3` with value `findNode`.
 
 In protocol version `0`, there is 1 request argument:
+
 - A 48-byte string containing a key.
 
 In protocol version `1`, there are 2 request arguments:
+
 - A 48-byte string containing a key.
 - A dictionary containing `protocolVersion` with integer value `1`.
 
@@ -47,13 +50,16 @@ In both versions, the response has a property `3` with a list as value. Every it
 The request has a property `3` with value `findValue`.
 
 In protocol version `0`, there is 1 request argument:
+
 - A 48-byte string containing a key.
 
 In protocol version `1`, there are 2 request arguments:
+
 - A 48-byte string containing a key.
 - A dictionary containing `p` (optionally) with an integer value to indicate the page, and `protocolVersion` with integer value `1`.
 
 In both versions, the response has a property `3` with a dictionary as value:
+
 - The directory at least contains a property `token`, which is needed when storing values on the connected node. If the node supports protocol version `1`, it should have `protocolVersion` set to integer `1`. If it only supports version `0`, `protocolVersion` can be integer `0` or absent.
 - Based on if the node has the key, it will return the `contacts` property or the property where the name is the same as the key argument in the request. If the key is not known by the node, the `contacts` property is present. Like the `findNode` function response, the `contacts` property will contain a list of tuples, containing the node ID, IP address and DHT port number.
 - If the key is known by the node, `contacts` isn't required, but allowed to be present. The response now at least has a property with the same 48 byte long name as the key in the request. This property is a list, where every item in the list is a compact address. This compact address contains information on where the blob can be downloaded.
@@ -68,6 +74,7 @@ The compact address is a value of 54 bytes. The first 4 bytes are the binary for
 The request has a property `3` with value `store`.
 
 In protocol version `0`, there are 4 request arguments:
+
 - A 48-byte string containing a key (e.g. blob hash).
 - A value.
 - An original publisher ID.
@@ -76,6 +83,7 @@ In protocol version `0`, there are 4 request arguments:
 The value is a dictory with the properties `token`, `lbryid` and `port`. The `token` property holds the token value of the connected node, where the token value is received from an earlier `findValue` request. The `lbryid` property holds the node ID of the sending node. The `port` property holds the port number of where the blob can be downloaded.
 
 In protocol version `1`, there are 6 request arguments:
+
 - A blob hash.
 - A token.
 - A port.

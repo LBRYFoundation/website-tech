@@ -4,7 +4,7 @@ description: Learn how to use encryption with lbrycrd, the full blockchain softw
 
 # Full Node Encryption
 
-*Note: The below instructions are the [LBRYCrd Full Blockchain wallet](https://github.com/lbryio/lbrycrd) and not the default wallet that ships with the LBRY App. We are still working on an encryption solution for this.*
+_Note: The below instructions are the [LBRYCrd Full Blockchain wallet](https://github.com/lbryio/lbrycrd) and not the default wallet that ships with the LBRY App. We are still working on an encryption solution for this._
 
 You can use `lbrycrd-cli encryptwallet <passphrase>` to encrypt your wallet.
 

@@ -61,7 +61,7 @@ Now that we have the metadata, let's [get](/api/daemon/#get) the actual file! Th
 claimData.innerText = "Loading...";
 
 Lbry.get({ uri: `lbry://${value}` })
-  .then(result => {
+  .then((result) => {
     const filePath = result.download_path;
     const image = document.createElement("img");
 
@@ -70,7 +70,7 @@ Lbry.get({ uri: `lbry://${value}` })
 
     claimData.innerText = JSON.stringify(result, null, 2);
   })
-  .catch(error => {
+  .catch((error) => {
     claimData.innerText = JSON.stringify(error, null, 2);
   });
 ```
@@ -185,7 +185,7 @@ The [LBRY SDK](https://github.com/lbryio/lbry-sdk) provides an API that enables 
 You can download the latest version from the [releases page](https://github.com/lbryio/lbry-sdk/releases) or via the following URLs, which will always download the latest SDK for each operating system:
 
 | OS      | URL                                                              |
-|---------|------------------------------------------------------------------|
+| ------- | ---------------------------------------------------------------- |
 | Linux   | [lbry.com/releases/lbry.deb](https://lbry.com/releases/lbry.deb) |
 | macOS   | [lbry.com/releases/lbry.dmg](https://lbry.com/releases/lbry.dmg) |
 | Windows | [lbry.com/releases/lbry.exe](https://lbry.com/releases/lbry.exe) |
@@ -209,7 +209,7 @@ The API provided by the SDK is documented [here](/api/daemon/).
 You can download the latest version from the [releases page](https://github.com/lbryio/chainquery/releases) or via the following URLs, which will always download the latest version for each operating system:
 
 | OS      | URL                                                                          |
-|---------|------------------------------------------------------------------------------|
+| ------- | ---------------------------------------------------------------------------- |
 | Linux   | [lbry.com/releases/chainquery.deb](https://lbry.com/releases/chainquery.deb) |
 | macOS   | [lbry.com/releases/chainquery.dmg](https://lbry.com/releases/chainquery.dmg) |
 | Windows | [lbry.com/releases/chainquery.exe](https://lbry.com/releases/chainquery.exe) |
@@ -229,7 +229,7 @@ After following those steps, you'll have an SQL database that stays up to date, 
 You can download the latest version from the [releases page](https://github.com/lbryio/lbrycrd/releases) or via the following URLs, which will always download the latest version for each operating system:
 
 | OS      | URL                                                                    |
-|---------|------------------------------------------------------------------------|
+| ------- | ---------------------------------------------------------------------- |
 | Linux   | [lbry.com/releases/lbrycrd.deb](https://lbry.com/releases/lbrycrd.deb) |
 | macOS   | [lbry.com/releases/lbrycrd.dmg](https://lbry.com/releases/lbrycrd.dmg) |
 | Windows | [lbry.com/releases/lbrycrd.exe](https://lbry.com/releases/lbrycrd.exe) |
@@ -240,7 +240,7 @@ Run `./lbrycrdd -server -daemon` to tell the program to provide a JSON-RPC daemo
 
 We do not provide API wrappers for `lbrycrd`, but interacting with it works similar to the [SDK](#sdk).
 
-`lbrycrd` is a fork of Bitcoin and it functions similarly to Bitcoin. [This documentation](https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)) may help you understand how to make calls.
+`lbrycrd` is a fork of Bitcoin and it functions similarly to Bitcoin. [This documentation](<https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)>) may help you understand how to make calls.
 
 A full list of methods is available [here](/api/blockchain/).
 

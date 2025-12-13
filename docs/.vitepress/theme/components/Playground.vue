@@ -1,24 +1,27 @@
 <script setup>
-import {onMounted} from "vue";
+import { onMounted } from "vue";
 
-const lbrytvAPI_addSupport = function () { };
+const lbrytvAPI_addSupport = function () {};
 
-const lbrytvAPI_publish = function () { };
+const lbrytvAPI_publish = function () {};
 
 const lbrytvAPI_resolve = function (urls) {
   return new Promise(async (resolve, reject) => {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         method: "resolve",
-        params: { urls: urls }
-      })
+        params: { urls: urls },
+      }),
     };
 
-    const response = await fetch("https://api.na-backend.odysee.com/api/v1/proxy", options);
+    const response = await fetch(
+      "https://api.na-backend.odysee.com/api/v1/proxy",
+      options,
+    );
     let json;
     if (!response.ok) return reject(new Error("DAEMON ERROR: resolve"));
 
@@ -37,7 +40,7 @@ const lbrytvAPI_getTrending = function () {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         method: "claim_search",
@@ -45,28 +48,53 @@ const lbrytvAPI_getTrending = function () {
           page_size: 20,
           page: 1,
           no_totals: true,
-          any_tags:
-            ["art",
-              "automotive",
-              "blockchain",
-              "comedy",
-              "economics",
-              "education",
-              "gaming",
-              "music",
-              "news",
-              "science",
-              "sports",
-              "technology"],
+          any_tags: [
+            "art",
+            "automotive",
+            "blockchain",
+            "comedy",
+            "economics",
+            "education",
+            "gaming",
+            "music",
+            "news",
+            "science",
+            "sports",
+            "technology",
+          ],
           channel_ids: [],
           not_channel_ids: [],
-          not_tags: ["porn", "porno", "nsfw", "mature", "xxx", "sex", "creampie", "blowjob", "handjob", "vagina", "boobs", "big boobs", "big dick", "pussy", "cumshot", "anal", "hard fucking", "ass", "fuck", "hentai"],
-          order_by: ["trending_group", "trending_mixed"]
-        }
-      })
+          not_tags: [
+            "porn",
+            "porno",
+            "nsfw",
+            "mature",
+            "xxx",
+            "sex",
+            "creampie",
+            "blowjob",
+            "handjob",
+            "vagina",
+            "boobs",
+            "big boobs",
+            "big dick",
+            "pussy",
+            "cumshot",
+            "anal",
+            "hard fucking",
+            "ass",
+            "fuck",
+            "hentai",
+          ],
+          order_by: ["trending_group", "trending_mixed"],
+        },
+      }),
     };
 
-    const response = await fetch("https://api.na-backend.odysee.com/api/v1/proxy", options);
+    const response = await fetch(
+      "https://api.na-backend.odysee.com/api/v1/proxy",
+      options,
+    );
     let json;
     if (!response.ok) return reject(new Error("DAEMON ERROR: resolve"));
 
@@ -80,61 +108,61 @@ const lbrytvAPI_getTrending = function () {
   });
 };
 
-async function publishMeme(publishMetadata){
-  const queryUrl = process.env.NODE_ENV === "development" ?
-    "http://localhost:5200/publish" :
-    `https://${process.env.DAEMON_URL}/publish`;
+async function publishMeme(publishMetadata) {
+  const queryUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:5200/publish"
+      : `https://${process.env.DAEMON_URL}/publish`;
 
   const options = {
-    method: 'PUT',
+    method: "PUT",
     body: {
       authorization: process.env.LBRY_DAEMON_ACCESS_TOKEN,
-      metadata: publishMetadata
+      metadata: publishMetadata,
     },
-    json: true
+    json: true,
   };
 
   try {
     const response = await fetch(queryUrl, options);
     return response.body;
-  } catch(error) {
+  } catch (error) {
     return error;
   }
 }
 
-function randomString(len){
+function randomString(len) {
   if (!Number.isFinite(len)) throw new TypeError("Expected a finite number");
-  return crypto.randomBytes(Math.ceil(len / 2)).toString("hex")
+  return crypto
+    .randomBytes(Math.ceil(len / 2))
+    .toString("hex")
     .slice(0, len);
 }
 
 async function uploadImage(imageSource) {
-  const queryUrl = process.env.NODE_ENV === "development" ?
-    "http://localhost:5200/image" :
-    `https://${process.env.DAEMON_URL}/image`;
+  const queryUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:5200/image"
+      : `https://${process.env.DAEMON_URL}/image`;
 
   const options = {
-    method: 'POST',
+    method: "POST",
     body: {
       authorization: process.env.LBRY_DAEMON_ACCESS_TOKEN,
-      image: imageSource
+      image: imageSource,
     },
-    json: true
+    json: true,
   };
 
   try {
     const response = await fetch(queryUrl, options);
     return response.body;
-  } catch(error) {
+  } catch (error) {
     return error;
   }
 }
 
-const allowedQueryMethods = [
-  "support_create",
-  "publish",
-  "resolve"
-];
+const allowedQueryMethods = ["support_create", "publish", "resolve"];
 
 const approvedContentIdsForTipping = [
   "3db81c073f82fd1bb670c65f526faea3b8546720",
@@ -146,19 +174,16 @@ const approvedContentIdsForTipping = [
   "1ac47b8b3def40a25850dc726a09ce23d09e7009",
   "784b3c215a6f06b663fc1aa292bcb19f29c489bb",
   "758dd6497cdfc401ae1f25984738d024d47b50af",
-  "8a7401b88d5ed0376d98f16808194d4dcb05b284"
+  "8a7401b88d5ed0376d98f16808194d4dcb05b284",
 ];
 
-const environment = process.env.NODE_ENV === "development" ?
-  "development" :
-  "production";
+const environment =
+  process.env.NODE_ENV === "development" ? "development" : "production";
 
 //  P A C K A G E
 
 //const loadLanguages = require("prismjs/components");
 //loadLanguages(["json"]);
-
-
 
 //  E X P O R T
 
@@ -385,8 +410,6 @@ const environment = process.env.NODE_ENV === "development" ?
 //   }
 // };
 
-
-
 //  H E L P E R S
 
 function memePublishMessaging(source) {
@@ -415,10 +438,8 @@ function tipCompletionMessaging(source) {
   `;
 }
 
-
 function makeImageSourceSecure(url) {
-  if (!url || !url.length)
-    return url;
+  if (!url || !url.length) return url;
 
   const originalUrl = new URL(url);
 
@@ -428,26 +449,29 @@ function makeImageSourceSecure(url) {
   return originalUrl.href;
 }
 
-function generateContent(exampleNumber,selector) {
+function generateContent(exampleNumber, selector) {
   if (exampleNumber === 1) {
-    return lbrytvAPI_getTrending()
-      .then(response => {
-        const renderedContentCollection = [];
-        const urlsToResolve = [];
+    return lbrytvAPI_getTrending().then((response) => {
+      const renderedContentCollection = [];
+      const urlsToResolve = [];
 
-        response.forEach(r => {
-          urlsToResolve.push(r.canonical_url);
-        });
-        lbrytvAPI_resolve(urlsToResolve)
-          .then(resolveResponse => {
-            if (resolveResponse !== null) {
-              const responses = Object.values(resolveResponse);
+      response.forEach((r) => {
+        urlsToResolve.push(r.canonical_url);
+      });
+      lbrytvAPI_resolve(urlsToResolve)
+        .then((resolveResponse) => {
+          if (resolveResponse !== null) {
+            const responses = Object.values(resolveResponse);
 
-              for (const r in responses) {
-                const part = responses[r];
+            for (const r in responses) {
+              const part = responses[r];
 
-                if (part.value && part.value.thumbnail && part.value.thumbnail.url) {
-                  renderedContentCollection.push(`
+              if (
+                part.value &&
+                part.value.thumbnail &&
+                part.value.thumbnail.url
+              ) {
+                renderedContentCollection.push(`
                   <section class="playground-content__trend">
                     <figure
                       class="media__thumb"
@@ -466,20 +490,24 @@ function generateContent(exampleNumber,selector) {
                     </div>
                   </section>
                 `);
-                }
               }
             }
-            renderedContentCollection.push(`
+          }
+          renderedContentCollection.push(
+            `
             <script>
               document.getElementById("playground-example-description").innerHTML = document.querySelector("[data-action='playground, example 1']").dataset.description
-            <`+`/script>
-`);
-            document.querySelector(selector).innerHTML = renderedContentCollection.join("");
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      });
+            <` +
+              `/script>
+`,
+          );
+          document.querySelector(selector).innerHTML =
+            renderedContentCollection.join("");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
   }
 
   if (exampleNumber === 3) {
@@ -493,12 +521,12 @@ function generateContent(exampleNumber,selector) {
       "ever-wonder-how-bitcoin-and-other#1ac47b8b3def40a25850dc726a09ce23d09e7009",
       "bankrupt-pan-am#784b3c215a6f06b663fc1aa292bcb19f29c489bb",
       "minecraft-in-real-life-iron-man#758dd6497cdfc401ae1f25984738d024d47b50af",
-      "ethan-shows-kyle-warframe-skyvault#8a7401b88d5ed0376d98f16808194d4dcb05b284"
+      "ethan-shows-kyle-warframe-skyvault#8a7401b88d5ed0376d98f16808194d4dcb05b284",
     ];
     const renderedContentCollection = [];
 
     lbrytvAPI_resolve(approvedUrls)
-      .then(resolveResponse => {
+      .then((resolveResponse) => {
         if (resolveResponse !== null) {
           const responses = Object.values(resolveResponse);
 
@@ -528,14 +556,18 @@ function generateContent(exampleNumber,selector) {
             }
           }
         }
-        renderedContentCollection.push(`
+        renderedContentCollection.push(
+          `
 <script>
 document.getElementById("playground-example-description").innerHTML = document.querySelector("[data-action='playground, example 3']").dataset.description
-<`+`/script>
-`);
-        document.querySelector(selector).innerHTML = renderedContentCollection.join("");
+<` +
+            `/script>
+`,
+        );
+        document.querySelector(selector).innerHTML =
+          renderedContentCollection.join("");
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
@@ -546,43 +578,45 @@ function generateMemeCreator(selector) {
     {
       alt: "Carl Sagan",
       // src: "https://spee.ch/4f6b953e605a602434246743fd246d3e1fd4f5fd/carlsagan2.jpg"
-      src: "/assets/media/images/carlsagan2.jpg"
+      src: "/assets/media/images/carlsagan2.jpg",
     },
     {
       alt: "Doge",
       // src: "https://spee.ch/2f90f2d91441a4d33d3d4eb82bdfc4c56ec742c7/doge-meme.jpg"
-      src: "/assets/media/images/doge-meme.jpg"
+      src: "/assets/media/images/doge-meme.jpg",
     },
     {
       alt: "LBRY Logo With Green Background",
       // src: "https://spee.ch/40ac6818bbac87a208722bf4467653341d460908/lbry-green.png"
-      src: "/assets/media/images/lbry-green.png"
-    }
+      src: "/assets/media/images/lbry-green.png",
+    },
   ];
 
   const memePlaceholderData = {
     bottomLine: {
       placeholder: "Top line",
-      value: "that I made"
+      value: "that I made",
     },
     description: {
       placeholder: "Description",
-      value: "Check out this image I published to LBRY via lbry.tech"
+      value: "Check out this image I published to LBRY via lbry.tech",
     },
     topLine: {
       placeholder: "Top line",
-      value: "This is an example meme"
+      value: "This is an example meme",
     },
     title: {
       placeholder: "Title",
-      value: "Dank Meme Supreme da Cheese"
-    }
+      value: "Dank Meme Supreme da Cheese",
+    },
   };
 
   const renderedImages = [];
 
   for (const image of images)
-    renderedImages.push(`<img alt="${image.alt}" class="playground-content__meme__canvas__thumbnail" src="${image.src}"/>`);
+    renderedImages.push(
+      `<img alt="${image.alt}" class="playground-content__meme__canvas__thumbnail" src="${image.src}"/>`,
+    );
 
   document.querySelector(selector).innerHTML = `
     <div class="playground-content__meme__canvas">
@@ -665,8 +699,11 @@ function generateMemeCreator(selector) {
 }
 
 onMounted(() => {
-  generateContent(1,'#playground-loader');
-  document.getElementById("playground-example-description").textContent = document.querySelector("[data-action='playground, example 1']").dataset.description;
+  generateContent(1, "#playground-loader");
+  document.getElementById("playground-example-description").textContent =
+    document.querySelector(
+      "[data-action='playground, example 1']",
+    ).dataset.description;
 });
 </script>
 
@@ -686,10 +723,12 @@ onMounted(() => {
   position: relative;
 
   &.waiting::before {
-    top: 0; right: 0;
-    bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    background-color: rgba(255,255,255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     content: "";
     cursor: progress;
     position: absolute;
@@ -731,8 +770,10 @@ onMounted(() => {
     text-align: center;
 
     &::before {
-      width: 100%; height: 2.5rem;
-      top: -0.6rem; left: 0;
+      width: 100%;
+      height: 2.5rem;
+      top: -0.6rem;
+      left: 0;
 
       content: "example " attr(data-example);
       font-size: 0.6rem;
@@ -765,10 +806,12 @@ onMounted(() => {
 
     &.completed {
       &::after {
-        width: 100%; height: 100%;
-        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
 
-        background-color: rgba(255,255,255, 0.7);
+        background-color: rgba(255, 255, 255, 0.7);
         content: "✓";
         font-size: 3rem;
         line-height: 0.85;
@@ -795,8 +838,6 @@ onMounted(() => {
     }
   }
 }
-
-
 
 /*!
  * Playground | Content
@@ -862,15 +903,18 @@ onMounted(() => {
   position: relative;
 
   canvas {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
 
-    background-color: rgba(0,128,128, 0.3);
+    background-color: rgba(0, 128, 128, 0.3);
     margin-bottom: 1rem;
   }
 }
 
-.playground-content__meme__canvas__thumbnail { /*sass-lint:disable-line bem-depth // TODO: FIX THIS*/
-  width: 5rem; height: 5rem;
+.playground-content__meme__canvas__thumbnail {
+  /*sass-lint:disable-line bem-depth // TODO: FIX THIS*/
+  width: 5rem;
+  height: 5rem;
 
   border-style: solid;
   border-width: 2px;
@@ -893,7 +937,8 @@ onMounted(() => {
 }
 
 .playground-content__meme__editor {
-  width: 50%; min-height: 50vh;
+  width: 50%;
+  min-height: 50vh;
   float: right;
   font-size: 1rem;
 }
@@ -902,7 +947,8 @@ onMounted(() => {
   @extend .media-grid;
   @include create-grid;
 
-  min-width: 0; min-height: 0;
+  min-width: 0;
+  min-height: 0;
   grid-gap: var(--spacing-m);
   position: relative;
 
@@ -923,7 +969,11 @@ onMounted(() => {
   }
 
   .media__thumb {
-    background-image: linear-gradient(135deg, var(--lbry-teal-2), var(--lbry-blue-3) 100%);
+    background-image: linear-gradient(
+      135deg,
+      var(--lbry-teal-2),
+      var(--lbry-blue-3) 100%
+    );
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -974,7 +1024,8 @@ onMounted(() => {
 
   span {
     @include no-user-select;
-    width: 3.5rem; height: 2.5rem;
+    width: 3.5rem;
+    height: 2.5rem;
 
     color: gray;
     cursor: default;
@@ -1003,7 +1054,7 @@ onMounted(() => {
   }
 
   &.success {
-    background-color: rgba(0,128,128, 0.3);
+    background-color: rgba(0, 128, 128, 0.3);
 
     strong {
       display: block;
@@ -1029,7 +1080,7 @@ onMounted(() => {
   <section class="playground">
     <ul class="playground-navigation">
       <li
-        v-on:click="generateContent(1,'#playground-loader')"
+        v-on:click="generateContent(1, '#playground-loader')"
         class="playground-navigation__example"
         data-action="playground, example 1"
         data-description="In this example, you can see what runs under the hood when selecting content to view in the LBRY app."
@@ -1041,7 +1092,7 @@ onMounted(() => {
       </li>
 
       <li
-        v-on:click="generateMemeCreator('#playground-loader');"
+        v-on:click="generateMemeCreator('#playground-loader')"
         class="playground-navigation__example"
         data-action="playground, example 2"
         data-description="Sometimes you want to create content, not just consume it. In this example, you can create a meme and upload it to LBRY!"
@@ -1053,7 +1104,7 @@ onMounted(() => {
       </li>
 
       <li
-        v-on:click="generateContent(3,'#playground-loader');"
+        v-on:click="generateContent(3, '#playground-loader')"
         class="playground-navigation__example"
         data-action="playground, example 3"
         data-description="In the LBRY app, you can financially support your favorite creators by donating LBRY Credits (LBC). In this example, we are donating LBC in your stead."
@@ -1067,8 +1118,15 @@ onMounted(() => {
     <p class="playground__description" id="playground-example-description"></p>
     <section class="playground-content">
       <div class="playground-content__urlbar" id="playground-url">
-        <span>lbry://</span><input id="fetch-claim-uri" placeholder="&thinsp;Enter a LBRY address or select a video below" type="text"/>
-        <button class="button" data-action="execute claim" type="button">Resolve</button>
+        <span>lbry://</span
+        ><input
+          id="fetch-claim-uri"
+          placeholder="&thinsp;Enter a LBRY address or select a video below"
+          type="text"
+        />
+        <button class="button" data-action="execute claim" type="button">
+          Resolve
+        </button>
       </div>
 
       <div class="playground-content__trends" id="playground-loader"></div>

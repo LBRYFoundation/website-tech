@@ -1,32 +1,35 @@
 <script lang="ts" setup>
-import {onMounted, ref} from 'vue';
+import { onMounted, ref } from "vue";
 
 const baseURLSpec: string = "https://spec.lbry.com";
 
-const iframe = ref<HTMLIFrameElement|null>(null);
+const iframe = ref<HTMLIFrameElement | null>(null);
 
-function updateHistory(ev: MessageEvent): void{
-  if(ev.origin!==baseURLSpec || ev.source!==iframe.value.contentWindow){
+function updateHistory(ev: MessageEvent): void {
+  if (ev.origin !== baseURLSpec || ev.source !== iframe.value.contentWindow) {
     // Security
     return;
   }
 
   const iframeHash: string = ev.data;
 
-  const url: string = window.location.href.substring(0,window.location.href.lastIndexOf("#"));
-  history.replaceState(null,null,url + '#' + iframeHash);
+  const url: string = window.location.href.substring(
+    0,
+    window.location.href.lastIndexOf("#"),
+  );
+  history.replaceState(null, null, url + "#" + iframeHash);
 }
 
-function updateIframe(): void{
+function updateIframe(): void {
   iframe.value.src = baseURLSpec + window.location.hash;
 }
 
 onMounted((): void => {
   updateIframe();
 
-  window.addEventListener('hashchange',updateIframe);
+  window.addEventListener("hashchange", updateIframe);
 
-  window.addEventListener('message',updateHistory);
+  window.addEventListener("message", updateHistory);
 });
 </script>
 

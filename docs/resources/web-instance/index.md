@@ -69,8 +69,7 @@ download_dir: /tmp
 wallet_dir: /tmp
 ```
 
-Note that it is required to have `streaming_server` and `api` set to user-accessible IPs. If you want this to be accessible on the open web, that means setting  them to `0.0.0.0`.
-
+Note that it is required to have `streaming_server` and `api` set to user-accessible IPs. If you want this to be accessible on the open web, that means setting them to `0.0.0.0`.
 
 To build the image, run:
 

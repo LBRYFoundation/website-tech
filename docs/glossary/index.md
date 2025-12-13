@@ -30,8 +30,8 @@ The fields included at the top of each block. They are
 - hash of the transactions in the block
 - root hash of the claimtrie, after all operations in the current block have been applied
 - current timestamp in seconds
-- current *target*
-- *nonce*
+- current _target_
+- _nonce_
 
 ## Block Height
 
@@ -107,7 +107,6 @@ A node which can definitively decide whether a transaction is valid or not, with
 
 The first block in the blockchain. The genesis block is not mined, but is hard-coded into the protocol. It has no reference to a previous block. The LBRY genesis block was released on [28 Oct 2015](https://explorer.lbry.com/blocks/0). The first real block was mined was on [23 Jun 2016](https://explorer.lbry.com/blocks/1).
 
-
 ### Hard Fork
 
 A change to the consensus rules such that a block that would have been considered invalid under the old rules is now considered valid under the new rules. Nodes that choose to adopt the hard fork will have to upgrade to the new rules in order to stay on the network. Nodes that refuse to adopt the new rules may continue to use the old rules. If a significant number of nodes are running both versions of the rules at once, the chain may split into two incompatible chains.
@@ -182,7 +181,7 @@ The process of translating a URL into the associated claim ID and metadata. See 
 
 ## Schema
 
-A definition of the structure of the metadata that is stored in claims in the blockchain.  See [Metadata]((/spec/#metadata) for more information.
+A definition of the structure of the metadata that is stored in claims in the blockchain. See [Metadata]((/spec/#metadata) for more information.
 
 ## Simplified Payment Verification
 
@@ -218,7 +217,7 @@ The cryptographic key needed to decrypt the content blobs of a stream. The strea
 
 ## Support
 
-A [stake](#stake) that lends its credits to bolster a claim. A support increases the *effective amount* of a claim, helping it compete for control of the claim's name. See [Supports]((/spec/#supports) for more on how they work.
+A [stake](#stake) that lends its credits to bolster a claim. A support increases the _effective amount_ of a claim, helping it compete for control of the claim's name. See [Supports]((/spec/#supports) for more on how they work.
 
 ## Testnet
 
@@ -239,4 +238,3 @@ The fee paid to a miner for including a transaction in a block. Miners are incen
 ## Wallet
 
 An application or a service that stores private keys and generates and signs transactions. Wallets do not store LBRY Credits themselves (those are recorded as transactions in the global blockchain). "Storing LBC" usually means storing the private keys that control the credits.
-

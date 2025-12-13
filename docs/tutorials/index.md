@@ -37,5 +37,3 @@ Learn how to [create and modify a simple LBRY electron application](/tutorial-he
 - **Android Application** - [Video tutorial](https://odysee.com/video-2018-10-15053403:e) to setup the [Android app](https://github.com/lbryio/lbry-android) development environment.
 - **LBRY SDK** - [Video tutorial](https://odysee.com/@lbrytech:1/lbrynet-dev-setup:9) to set up the [LBRY SDK](https://github.com/lbryio/lbry-sdk) development environment.
 - **LBRY Blockchain** - [Video tutorial](https://odysee.com/intro-to-LBRYcrd:5) to set up the [LBRY Blockchain](https://github.com/lbryio/lbrycrd) development environment.
-
-

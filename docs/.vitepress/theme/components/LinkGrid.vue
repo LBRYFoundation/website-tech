@@ -1,11 +1,11 @@
 <script>
 export default {
-  props: ['links'],
+  props: ["links"],
 };
 </script>
 
 <script setup>
-const props = defineProps(['links']);
+const props = defineProps(["links"]);
 
 function returnLinkTemplate(title, description, destination, label) {
   return `
@@ -17,7 +17,14 @@ function returnLinkTemplate(title, description, destination, label) {
   `;
 }
 
-const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, link.description, link.destination, link.label));
+const renderedLinks = props.links.map((link) =>
+  returnLinkTemplate(
+    link.title,
+    link.description,
+    link.destination,
+    link.label,
+  ),
+);
 </script>
 
 <style>
@@ -78,7 +85,6 @@ const renderedLinks = props.links.map(link => returnLinkTemplate(link.title, lin
   font-size: 1rem;
   position: relative;
 }
-
 </style>
 
 <template>

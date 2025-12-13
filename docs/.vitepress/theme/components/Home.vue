@@ -3,19 +3,19 @@ import LinkGrid from "./LinkGrid.vue";
 import GitHubFeed from "./GitHubFeed.vue";
 
 const links = [
-    {
-      description: "Get your head around LBRY with 3 interactive examples.",
-      destination: "/playground",
-      label: "Party in the Playground",
-      title: "Learn By Trying"
-    },
-    {
-      description: "Dig into the formal specification of the LBRY protocol.",
-      destination: "/spec",
-      label: "Study the Spec",
-      title: "Learn By Reading"
-    }
-  ];
+  {
+    description: "Get your head around LBRY with 3 interactive examples.",
+    destination: "/playground",
+    label: "Party in the Playground",
+    title: "Learn By Trying",
+  },
+  {
+    description: "Dig into the formal specification of the LBRY protocol.",
+    destination: "/spec",
+    label: "Study the Spec",
+    title: "Learn By Reading",
+  },
+];
 </script>
 
 <style>
@@ -28,13 +28,13 @@ body :has(.home) {
       display: grid;
       grid-gap: 0;
       grid-template-areas:
-      "header header header"
-      "features features features"
-      "intro intro github"
-      "docs docs github"
-      "contribute contribute contribute"
-      "develop develop develop"
-      "community community community";
+        "header header header"
+        "features features features"
+        "intro intro github"
+        "docs docs github"
+        "contribute contribute contribute"
+        "develop develop develop"
+        "community community community";
     }
   }
 
@@ -53,15 +53,17 @@ body :has(.home) {
   }
 
   hr {
-    width: 100%; height: 1px;
+    width: 100%;
+    height: 1px;
 
-    background-color: rgba(0,0,0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border: none;
     margin-bottom: 4rem;
   }
 
   .hero {
-    height: calc(50vh - 4rem); min-height: 300px;
+    height: calc(50vh - 4rem);
+    min-height: 300px;
 
     align-items: center;
     background-color: #000;
@@ -123,9 +125,10 @@ body :has(.home) {
       text-transform: uppercase;
 
       @media (min-width: 1301px) {
-        top: -0.85rem; left: -2rem;
+        top: -0.85rem;
+        left: -2rem;
 
-        color: rgba(0,0,0, 0.045);
+        color: rgba(0, 0, 0, 0.045);
         font-size: 4rem;
         position: absolute;
       }
@@ -251,7 +254,8 @@ body :has(.home) {
           transition: color 0.2s;
 
           &::before {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             left: 0;
 
             background-position: center 0;
@@ -286,15 +290,18 @@ body :has(.home) {
 
       li {
         @media (min-width: 701px) {
-          width: calc(100% / 4); height: 6rem;
+          width: calc(100% / 4);
+          height: 6rem;
         }
 
         @media (max-width: 700px) {
-          width: 50%; height: 5rem;
+          width: 50%;
+          height: 5rem;
         }
 
         &::before {
-          width: 100%; height: 100%;
+          width: 100%;
+          height: 100%;
 
           background-position: center;
           background-repeat: no-repeat;
@@ -382,20 +389,25 @@ body :has(.home) {
     <section class="hero">
       <div>
         <h1>
-          LBRY is a free, open, and community-run digital marketplace.<br/>
+          LBRY is a free, open, and community-run digital marketplace.<br />
           Build the future of content freedom.
         </h1>
       </div>
     </section>
 
     <section class="features">
-      <LinkGrid :links="links"/>
+      <LinkGrid :links="links" />
     </section>
 
     <section class="intro">
       <div class="inner-wrap">
         <h3>Overview</h3>
-        <p>What if anyone in the world could publish a piece of digital content, anyone else in the world could access it, for free or for payment, and that entire system worked end-to-end without any centralized authority or point of control?</p>
+        <p>
+          What if anyone in the world could publish a piece of digital content,
+          anyone else in the world could access it, for free or for payment, and
+          that entire system worked end-to-end without any centralized authority
+          or point of control?
+        </p>
         <a class="cta" href="/overview">Observe the Overview</a>
       </div>
     </section>
@@ -403,17 +415,24 @@ body :has(.home) {
     <section class="docs">
       <div class="inner-wrap">
         <h3>Resources</h3>
-        <p>Looking for API documentation, formal specifications, how-tos, resources, or the meaning of life? Find at least some of these things in the resources area.</p>
+        <p>
+          Looking for API documentation, formal specifications, how-tos,
+          resources, or the meaning of life? Find at least some of these things
+          in the resources area.
+        </p>
         <a class="cta" href="/resources">Roam to Resources</a>
       </div>
     </section>
 
-    <GitHubFeed/>
+    <GitHubFeed />
 
     <section class="contribute">
       <div class="inner-wrap">
         <h3>Contribute</h3>
-        <p>No matter your experience or skill level, <em>you</em> can progress content freedom.</p>
+        <p>
+          No matter your experience or skill level, <em>you</em> can progress
+          content freedom.
+        </p>
 
         <ul>
           <li>Coding</li>
@@ -430,12 +449,19 @@ body :has(.home) {
     <section class="community">
       <div class="inner-wrap">
         <h3>Community</h3>
-        <p>There's literally <a href="https://lbry.tv/@lbrytech:1/dozens:e">12n</a> of us.</p>
+        <p>
+          There's literally
+          <a href="https://lbry.tv/@lbrytech:1/dozens:e">12n</a> of us.
+        </p>
 
         <ul>
           <li><a href="//chat.lbry.org" title="LBRY on Discord">Chat</a></li>
-          <li><a href="//forum.lbry.org" title="LBRY on Discourse">Forum</a></li>
-          <li><a href="//www.reddit.com/r/lbry" title="LBRY on Reddit">Reddit</a></li>
+          <li>
+            <a href="//forum.lbry.org" title="LBRY on Discourse">Forum</a>
+          </li>
+          <li>
+            <a href="//www.reddit.com/r/lbry" title="LBRY on Reddit">Reddit</a>
+          </li>
         </ul>
       </div>
     </section>

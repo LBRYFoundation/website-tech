@@ -36,9 +36,11 @@ If you do not have `lbrynet` installed or your version is less than `v0.108.0` t
 1. On the USB key, find a file named `key.zip` and unzip this file using the password emailed to you previously.
 2. You should now have a file named `key.txt` which is base64 encoded and contains your `private key` and `redeem script`.
 3. To decode the contents of the file you can use a website such as [base64decode.org](https://www.base64decode.org/) (not a secure option) or if you have Python installed you can do this on the command line:
-  ```shell
-  python -m base64 -d /path/to/key.txt
-  ```
+
+```shell
+python -m base64 -d /path/to/key.txt
+```
+
 1. After decoding you will see a key/value mapping of various items, including `privateKey` and `redeemScript`. Take note of these values.
 
 ## Redeem

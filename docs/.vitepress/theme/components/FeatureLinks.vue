@@ -2,23 +2,26 @@
 const links = [
   {
     href: "https://chat.lbry.org",
-    image: "https://spee.ch/b432346bfd641990f3dc3dbceda057b4ededa360/discord-bg.jpg",
-    title: "Chat (Discord)"
+    image:
+      "https://spee.ch/b432346bfd641990f3dc3dbceda057b4ededa360/discord-bg.jpg",
+    title: "Chat (Discord)",
   },
   {
     href: "https://forum.lbry.org",
-    image: "https://spee.ch/e59dcbe6a533934eb82e73bb335b7e43cb8a9f7d/atmosphere.png",
-    title: "Developer Forum"
+    image:
+      "https://spee.ch/e59dcbe6a533934eb82e73bb335b7e43cb8a9f7d/atmosphere.png",
+    title: "Developer Forum",
   },
   {
     href: "https://lbry.fund",
-    image: "https://spee.ch/b29b4cb6495c9c2e6fc26113bcc92158ed408a35/pixelsunset.png",
-    title: "lbry.fund (Project Funding)"
+    image:
+      "https://spee.ch/b29b4cb6495c9c2e6fc26113bcc92158ed408a35/pixelsunset.png",
+    title: "lbry.fund (Project Funding)",
   },
   {
     href: "https://www.reddit.com/r/lbry",
     image: "https://spee.ch/2357ab1464bcbba3458f4eabdad9644bcfd6f491/lines.png",
-    title: "Reddit"
+    title: "Reddit",
   },
   //   {
   //     href: "https://lbry.com/join-us",
@@ -27,14 +30,15 @@ const links = [
   //   },
   {
     href: "https://twitter.com/LBRYcom",
-    image: "https://spee.ch/9c38db124b85736adbcca48cdf34877d2110bbcd/GeoShapes.png",
-    title: "Twitter"
+    image:
+      "https://spee.ch/9c38db124b85736adbcca48cdf34877d2110bbcd/GeoShapes.png",
+    title: "Twitter",
   },
   {
     href: "https://www.facebook.com/lbryio",
     image: "https://spee.ch/734404b89658e30af920829553b22d1742c0d99a/voice.png",
-    title: "Facebook"
-  }
+    title: "Facebook",
+  },
 ];
 
 function returnLinkTemplate(url, title, image) {
@@ -55,10 +59,9 @@ const renderedLinks = [];
 let imageLink = "";
 
 for (const link of links) {
-  if (link.image)
-imageLink = `<img alt="${link.title}" src="${link.image}"/>`;
+  if (link.image) imageLink = `<img alt="${link.title}" src="${link.image}"/>`;
 
-renderedLinks.push(returnLinkTemplate(link.href, link.title, imageLink));
+  renderedLinks.push(returnLinkTemplate(link.href, link.title, imageLink));
 }
 </script>
 
@@ -77,7 +80,7 @@ renderedLinks.push(returnLinkTemplate(link.href, link.title, imageLink));
 
 .feature-link {
   background-color: #fff;
-  border: 1px solid rgba(33,37,41, 0.1);
+  border: 1px solid rgba(33, 37, 41, 0.1);
   border-radius: 3px;
   cursor: pointer;
   display: inline-block;
@@ -140,16 +143,18 @@ renderedLinks.push(returnLinkTemplate(link.href, link.title, imageLink));
   padding: 0.25rem 0.5rem;
 
   background-color: #fff;
-  border: 1px solid rgb(225.6,229.2,232.8);
+  border: 1px solid rgb(225.6, 229.2, 232.8);
   border-radius: 3px;
   box-decoration-break: clone;
-  box-shadow: 0 2px 5px rgba(136.8,142,147.2, 0.1);
+  box-shadow: 0 2px 5px rgba(136.8, 142, 147.2, 0.1);
   display: inline-block;
 }
 
 .feature-link__background {
-  width: calc(100% + 2px); height: 100px;
-  top: -1px; left: -1px;
+  width: calc(100% + 2px);
+  height: 100px;
+  top: -1px;
+  left: -1px;
 
   background-color: #38d9a9;
   border-top-right-radius: 3px;
@@ -160,16 +165,16 @@ renderedLinks.push(returnLinkTemplate(link.href, link.title, imageLink));
   z-index: 0;
 
   img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
     object-position: center;
     position: absolute;
   }
 }
-
 </style>
 
 <template>
-  <div class="feature-links" v-html="renderedLinks.join('')"/>
+  <div class="feature-links" v-html="renderedLinks.join('')" />
 </template>

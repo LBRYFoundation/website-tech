@@ -159,7 +159,6 @@ echo '{"id":1,"method":"server.version"}' | timeout 1 curl telnet://localhost:50
 
 You should see a response like `{"jsonrpc": "2.0", "result": ["0.46.1", "0.0"], "id": 1}`. If you do, congratulations! You've set up your own wallet server.
 
-
 To check Elastic search, there are two commands you can use:
 
 ```shell
@@ -186,11 +185,13 @@ docker-compose up --detach
 ```
 
 ### Resyncing
+
 From time to time, we'll release an update that requires recreating one of the databases from scratch. Most of the time we will try to ensure there is an automatic migration, but even then, if you think the server has invalid data you can also try a resync.
 
 The process is similar to an update, but causes the server to be down for much longer.
 
 #### Main database
+
 Holds the raw blockchain data and takes several days to resync from scratch, so be sure to have a snapshot or try that last.
 
 ```shell
@@ -201,6 +202,7 @@ WALLET_SERVER_SNAPSHOT_URL= docker-compose up --detach
 ```
 
 #### Elasticsearch
+
 ES does the indexing of claims from the main database. It should take around 6 hours to resync on a fast machine.
 
 ```shell
