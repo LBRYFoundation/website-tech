@@ -94,7 +94,7 @@
     "@algolia/requester-fetch" "5.49.0"
     "@algolia/requester-node-http" "5.49.0"
 
-"@algolia/client-search@5.49.0", "@algolia/client-search@^5.44.0":
+"@algolia/client-search@5.49.0", "@algolia/client-search@^5.49.0":
   version "5.49.0"
   resolved "https://registry.yarnpkg.com/@algolia/client-search/-/client-search-5.49.0.tgz#4728f0b06ceb3b0a7125aac39ee5eb7783c47696"
   integrity sha512-uGv2P3lcviuaZy8ZOAyN60cZdhOVyjXwaDC27a1qdp3Pb5Azn+lLSJwkHU4TNRpphHmIei9HZuUxwQroujdPjw==
@@ -368,10 +368,15 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@9.39.3", "@eslint/js@^9.39.2":
+"@eslint/js@9.39.3":
   version "9.39.3"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.39.3.tgz#c6168736c7e0c43ead49654ed06a4bcb3833363d"
   integrity sha512-1B1VkCq6FuUNlQvlBYb+1jDu/gV297TIs/OeiaSR9l1H27SVW55ONE1e1Vp16NqP683+xEGzxYtv4XCiDPaQiw==
+
+"@eslint/js@^10.0.1":
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-10.0.1.tgz#1e8a876f50117af8ab67e47d5ad94d38d6622583"
+  integrity sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA==
 
 "@eslint/object-schema@^2.1.7":
   version "2.1.7"
@@ -386,7 +391,7 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
-"@fontsource-variable/roboto@^5.2.8":
+"@fontsource-variable/roboto@^5.2.10":
   version "5.2.10"
   resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto/-/roboto-5.2.10.tgz#79b4a130f927c645b197a0e7931cf03f4f09b235"
   integrity sha512-LJ0iLg6aHbLzN515gyHzmdTqJzd9NlI95cCg1DW0F5G7KkFqRLBBKBbqEJx4nSu4aby3IKmw3ZH6Fe928IfaSQ==
@@ -1351,7 +1356,7 @@ mark.js@8.11.1:
   resolved "https://registry.yarnpkg.com/mark.js/-/mark.js-8.11.1.tgz#180f1f9ebef8b0e638e4166ad52db879beb2ffc5"
   integrity sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==
 
-markdown-it@^14.1.0:
+markdown-it@^14.1.1:
   version "14.1.1"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-14.1.1.tgz#856f90b66fc39ae70affd25c1b18b581d7deee1f"
   integrity sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==
@@ -1528,7 +1533,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prettier@^3.7.4:
+prettier@^3.8.1:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.8.1.tgz#edf48977cf991558f4fcbd8a3ba6015ba2a3a173"
   integrity sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==
@@ -1802,7 +1807,7 @@ vitepress@^1.6.4:
     vite "^5.4.14"
     vue "^3.5.13"
 
-vue@^3.5.13, vue@^3.5.24:
+vue@^3.5.13, vue@^3.5.28:
   version "3.5.28"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.5.28.tgz#067ac9313d24d517c6d59ccbd9f0f6216cbdb00f"
   integrity sha512-BRdrNfeoccSoIZeIhyPBfvWSLFP4q8J3u8Ju8Ug5vu3LdD+yTM13Sg4sKtljxozbnuMu1NB1X5HBHRYUzFocKg==
