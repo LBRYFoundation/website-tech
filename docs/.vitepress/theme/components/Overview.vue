@@ -354,12 +354,33 @@ function resetClassesAndStorage() {
 }
 
 function onClick(event) {
-  if (!event.target.dataset.action) {
+  const actionElement = event.target.closest("[data-action]");
+
+  if (!actionElement) {
+    const inactiveModule = event.target.closest(".ecosystem__module:not(.active)");
+
+    if (!inactiveModule || !inactiveModule.closest(".ecosystem")) {
+      return;
+    }
+
+    const target = ["lbrycrd", "lbry", "applications"].find((className) =>
+      inactiveModule.classList.contains(className),
+    );
+
+    if (target) {
+      event.preventDefault();
+      open(target);
+    }
+
+    return;
+  }
+
+  if (!actionElement.closest(".ecosystem")) {
     return;
   }
 
   event.preventDefault();
-  const data = event.target.dataset;
+  const data = actionElement.dataset;
 
   switch (data.action) {
     case "open":
@@ -580,6 +601,8 @@ onMounted(() => {
 
   &:not(.active) {
     @include center;
+
+    cursor: pointer;
 
     h2 {
       font-size: 1.5rem;
