@@ -728,6 +728,7 @@ onMounted(() => {
 .ecosystem__module__details,
 .ecosystem__submodule__markdown {
   @extend %markdown;
+  position: relative;
 }
 
 .ecosystem__module__piece {
