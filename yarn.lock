@@ -371,10 +371,10 @@
     "@eslint/core" "^1.2.1"
     levn "^0.4.1"
 
-"@fontsource-variable/roboto@^5.2.10":
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto/-/roboto-5.2.10.tgz#79b4a130f927c645b197a0e7931cf03f4f09b235"
-  integrity sha512-LJ0iLg6aHbLzN515gyHzmdTqJzd9NlI95cCg1DW0F5G7KkFqRLBBKBbqEJx4nSu4aby3IKmw3ZH6Fe928IfaSQ==
+"@fontsource-variable/roboto@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/roboto/-/roboto-5.3.0.tgz#3ddf845c018b0ea9d15b36e06515d0ebdb02f49e"
+  integrity sha512-BoaaZiQf8fgtxv07KXkTwx1bKz/EoqIlTXq2OOKKXINxp6qXWdnlChqV+hSaDANS49yyUASFl3OVBMMDTCIHFA==
 
 "@humanfs/core@^0.19.2":
   version "0.19.2"
