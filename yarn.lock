@@ -419,10 +419,10 @@
   resolved "https://registry.yarnpkg.com/@iconify/types/-/types-2.0.0.tgz#ab0e9ea681d6c8a1214f30cd741fe3a20cc57f57"
   integrity sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==
 
-"@iconify/vue@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@iconify/vue/-/vue-5.0.1.tgz#5e14c16511b6ed2f70f6b644d154dd8948acdfee"
-  integrity sha512-aumwwooJlFJ5H5qYWB6ZTAyM0C8hpfcSVLB9/a3qnH1GGvIJ+FEbpEs4s/HfErYe/M5qZeLjwmESR5fFm3lXEw==
+"@iconify/vue@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@iconify/vue/-/vue-5.0.3.tgz#1e8f927a46d35f3a42dadf5e4e429e0307e04d26"
+  integrity sha512-e9x6QZe2/HyeHUog0jzZJSZts7m/YntPYp/p4OqtZEXpHznxWnQpcX30YpuaUH43h69l3YeR1FCJ8V1t3qd7qA==
   dependencies:
     "@iconify/types" "^2.0.0"
 
